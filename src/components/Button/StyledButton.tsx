@@ -67,6 +67,12 @@ const StyledButton = styled.button<ButtonProps>`
   padding: ${({ size }) => (size === "sm" ? "0 16px" : "0 24px")};
   transition: background-color 0.2s;
   opacity: ${({ isLoading }) => (isLoading ? 0.5 : 1)};
+  padding: 10px 35px;
+  border-radius: 30px;
+  font-family: Barlow;
+  text-align: center;
+  font-weight: 100;
+  text-shadow: 0px 0px 10px, 0px 0px 10px;
 
   &:hover:not(:disabled):not(.button--disabled):not(:active) {
     background-color: ${getButtonVariantProp("backgroundHover")};
