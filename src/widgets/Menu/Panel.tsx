@@ -4,6 +4,8 @@ import PanelBody from "./PanelBody";
 import PanelFooter from "./PanelFooter";
 import { SIDEBAR_WIDTH_REDUCED, SIDEBAR_WIDTH_FULL } from "./config";
 import { PanelProps, PushedProps } from "./types";
+import BgSidebar from "./IconImage/BgSidebar.svg"
+import Astronaut from "./IconImage/Astronaut-Dark.png"
 
 interface Props extends PanelProps, PushedProps {
   showMenu: boolean;
@@ -12,14 +14,13 @@ interface Props extends PanelProps, PushedProps {
 
 const StyledPanel = styled.div<{ isPushed: boolean; showMenu: boolean }>`
   position: fixed;
-  padding-top: ${({ showMenu }) => (showMenu ? "80px" : 0)};
   top: 0;
   left: 0;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   flex-shrink: 0;
-  background-color: ${({ theme }) => theme.nav.background};
+  background-image: url(${BgSidebar});
   width: ${({ isPushed }) => (isPushed ? `${SIDEBAR_WIDTH_FULL}px` : 0)};
   height: 100vh;
   transition: padding-top 0.2s, width 0.2s;
@@ -34,13 +35,17 @@ const StyledPanel = styled.div<{ isPushed: boolean; showMenu: boolean }>`
   }
 `;
 
+
 const Panel: React.FC<Props> = (props) => {
   const { isPushed, showMenu } = props;
   return (
+    <div>
     <StyledPanel isPushed={isPushed} showMenu={showMenu}>
+      <img src={Astronaut} width="139%"/>
       <PanelBody {...props} />
       <PanelFooter {...props} />
     </StyledPanel>
+    </div>
   );
 };
 

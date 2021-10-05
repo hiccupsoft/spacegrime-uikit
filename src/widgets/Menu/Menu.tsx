@@ -10,6 +10,7 @@ import UserBlock from "./UserBlock";
 import { NavProps } from "./types";
 import { MENU_HEIGHT, SIDEBAR_WIDTH_REDUCED, SIDEBAR_WIDTH_FULL } from "./config";
 import Avatar from "./Avatar";
+import TopNavBG from "./IconImage/BgHeader.svg"
 
 const Wrapper = styled.div`
   position: relative;
@@ -26,9 +27,10 @@ const StyledNav = styled.nav<{ showMenu: boolean }>`
   align-items: center;
   padding-left: 8px;
   padding-right: 16px;
-  width: 100%;
+  margin-left: 240px;
+  width: 77%;
   height: ${MENU_HEIGHT}px;
-  background-color: ${({ theme }) => theme.nav.background};
+  background-image: url(${TopNavBG});
   border-bottom: solid 2px rgba(133, 133, 133, 0.1);
   z-index: 20;
   transform: translate3d(0, 0, 0);
