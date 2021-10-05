@@ -10,7 +10,7 @@ import UserBlock from "./UserBlock";
 import { NavProps } from "./types";
 import { MENU_HEIGHT, SIDEBAR_WIDTH_REDUCED, SIDEBAR_WIDTH_FULL } from "./config";
 import Avatar from "./Avatar";
-import TopNavBG from "./IconImage/BgHeader.svg"
+const TopNavBG = require("./IconImage/BgHeader.svg") as string;
 
 const Wrapper = styled.div`
   position: relative;

@@ -4,8 +4,8 @@ import PanelBody from "./PanelBody";
 import PanelFooter from "./PanelFooter";
 import { SIDEBAR_WIDTH_REDUCED, SIDEBAR_WIDTH_FULL } from "./config";
 import { PanelProps, PushedProps } from "./types";
-import BgSidebar from "./IconImage/BgSidebar.svg"
-import Astronaut from "./IconImage/Astronaut-Dark.png"
+const BgSidebar = require("./IconImage/BgSidebar.svg") as string;
+const Astronaut = require("./IconImage/Astronaut-Light.svg") as string;
 
 interface Props extends PanelProps, PushedProps {
   showMenu: boolean;
@@ -35,16 +35,15 @@ const StyledPanel = styled.div<{ isPushed: boolean; showMenu: boolean }>`
   }
 `;
 
-
 const Panel: React.FC<Props> = (props) => {
   const { isPushed, showMenu } = props;
   return (
     <div>
-    <StyledPanel isPushed={isPushed} showMenu={showMenu}>
-      <img src={Astronaut} width="139%"/>
-      <PanelBody {...props} />
-      <PanelFooter {...props} />
-    </StyledPanel>
+      <StyledPanel isPushed={isPushed} showMenu={showMenu}>
+        <object data={Astronaut} width="139%" />
+        <PanelBody {...props} />
+        <PanelFooter {...props} />
+      </StyledPanel>
     </div>
   );
 };
