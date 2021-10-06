@@ -36,7 +36,7 @@ export const Input = styled.input`
 
 const StyledToggle = styled.div<{ checked: boolean }>`
   align-items: center;
-  background-color: ${({ theme, checked }) => theme.colors[checked ? "success" : "input"]};
+  background: ${ checked  => checked ? 'linear-gradient(272deg, #cfd0d2, #cfd0d2)' : 'linear-gradient(272deg, #80ffc4, #aeffb0)'};
   border-radius: 24px;
   box-shadow: ${({ theme }) => theme.shadows.inset};
   cursor: pointer;
@@ -44,7 +44,7 @@ const StyledToggle = styled.div<{ checked: boolean }>`
   height: 40px;
   position: relative;
   transition: background-color 200ms;
-  width: 72px;
+  width: 120px;
 `;
 
 export default StyledToggle;
