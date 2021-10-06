@@ -28,7 +28,7 @@ const StyledNav = styled.nav<{ showMenu: boolean }>`
   padding-left: 8px;
   padding-right: 16px;
   margin-left: 240px;
-  width: 77%;
+  width: 83%;
   height: ${MENU_HEIGHT}px;
   background-image: url(${TopNavBG});
   border-bottom: solid 2px rgba(133, 133, 133, 0.1);
