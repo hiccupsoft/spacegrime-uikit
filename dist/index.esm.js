@@ -2364,7 +2364,7 @@ var Accordion = function (_a) {
             icon,
             React.createElement(LinkLabel, { isPushed: isPushed }, label),
             isOpen ? React.createElement(Icon$8, null) : React.createElement(Icon$7, null)),
-        React.createElement(AccordionContent, { isOpen: isOpen, isPushed: isPushed, maxHeight: React.Children.count(children) * MENU_ENTRY_HEIGHT }, children)));
+        React.createElement(AccordionContent, { style: { boxShadow: "" + (isOpen ? '0px 1px 13px #0f0f6e' : '') }, isOpen: isOpen, isPushed: isPushed, maxHeight: React.Children.count(children) * MENU_ENTRY_HEIGHT }, children)));
 };
 var templateObject_1$A, templateObject_2$b;
 

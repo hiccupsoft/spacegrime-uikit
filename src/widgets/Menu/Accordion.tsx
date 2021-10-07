@@ -56,6 +56,7 @@ const Accordion: React.FC<Props> = ({
         {isOpen ? <ArrowDropUpIcon /> : <ArrowDropDownIcon />}
       </MenuEntry>
       <AccordionContent
+        style={{ boxShadow:  `${isOpen ? '0px 1px 13px #0f0f6e' : ''}`  }}
         isOpen={isOpen}
         isPushed={isPushed}
         maxHeight={React.Children.count(children) * MENU_ENTRY_HEIGHT}
