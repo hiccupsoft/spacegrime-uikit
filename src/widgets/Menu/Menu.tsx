@@ -13,6 +13,7 @@ import { MENU_HEIGHT, SIDEBAR_WIDTH_REDUCED, SIDEBAR_WIDTH_FULL } from "./config
 import Avatar from "./Avatar";
 const TopNavBG = require("./IconImage/BgHeader.svg") as string;
 import {Gear} from "./icons"
+import {NavBg} from "./icons"
 
 const Wrapper = styled.div`
   position: relative;
