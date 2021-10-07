@@ -16,20 +16,22 @@ const UserBlock: React.FC<Props> = ({ account, login, logout }) => {
     <div>
       {account ? (
         <Button
-          size="sm"
+          size="md"
           variant="tertiary"
           onClick={() => {
             onPresentAccountModal();
           }}
+          style={{padding: '20px'}}
         >
           {accountEllipsis}
         </Button>
       ) : (
         <Button
-          size="sm"
+          size="md"
           onClick={() => {
             onPresentConnectModal();
           }}
+          style={{padding: '20px'}}
         >
           Connect
         </Button>

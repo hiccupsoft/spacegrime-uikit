@@ -13,7 +13,6 @@ var hooks_1 = require("../../hooks");
 var Logo_1 = require("./Logo");
 var Panel_1 = require("./Panel");
 var UserBlock_1 = require("./UserBlock");
-var Button_1 = require("../../components/Button/Button");
 var config_1 = require("./config");
 var Avatar_1 = require("./Avatar");
 var TopNavBG = require("./IconImage/BgHeader.svg");
@@ -38,10 +37,7 @@ var MobileOnlyOverlay = styled_components_1["default"](Overlay_1["default"])(tem
     var theme = _a.theme;
     return theme.mediaQueries.nav;
 });
-var GearBackground = styled_components_1["default"].div(templateObject_6 || (templateObject_6 = __makeTemplateObject(["\n  background: ", ";\n  padding: 6px 11px;\n  border-radius: 40px;\n  margin-left: 15px;  \n"], ["\n  background: ", ";\n  padding: 6px 11px;\n  border-radius: 40px;\n  margin-left: 15px;  \n"])), function (_a) {
-    var theme = _a.theme;
-    return theme.colors.primary;
-});
+var GearBackground = styled_components_1["default"].div(templateObject_6 || (templateObject_6 = __makeTemplateObject(["\nmargin-right: 25px;  \n  margin-left: 25px;  \n"], ["\nmargin-right: 25px;  \n  margin-left: 25px;  \n"])));
 var Menu = function (_a) {
     var _b;
     var account = _a.account, login = _a.login, logout = _a.logout, isDark = _a.isDark, toggleTheme = _a.toggleTheme, langs = _a.langs, setLang = _a.setLang, currentLang = _a.currentLang, cakePriceUsd = _a.cakePriceUsd, links = _a.links, priceLink = _a.priceLink, profile = _a.profile, children = _a.children;
@@ -85,7 +81,7 @@ var Menu = function (_a) {
             react_1["default"].createElement(Logo_1["default"], { isPushed: isPushed, togglePush: function () { return setIsPushed(function (prevState) { return !prevState; }); }, isDark: isDark, href: (_b = homeLink === null || homeLink === void 0 ? void 0 : homeLink.href) !== null && _b !== void 0 ? _b : "/" }),
             react_1["default"].createElement(Flex_1.Flex, null,
                 react_1["default"].createElement(UserBlock_1["default"], { account: account, login: login, logout: logout }),
-                react_1["default"].createElement(Button_1["default"], { variant: "subtle", style: { padding: '0px 16px', height: '37px', marginLeft: '15px' } },
+                react_1["default"].createElement(GearBackground, null,
                     react_1["default"].createElement(icons_1.Gear, null)),
                 profile && react_1["default"].createElement(Avatar_1["default"], { profile: profile }))),
         react_1["default"].createElement(BodyWrapper, null,

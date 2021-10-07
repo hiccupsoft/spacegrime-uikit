@@ -63,10 +63,8 @@ const MobileOnlyOverlay = styled(Overlay)`
 `;
 
 const GearBackground = styled.div`
-  background: ${({ theme }) => theme.colors.primary };
-  padding: 6px 11px;
-  border-radius: 40px;
-  margin-left: 15px;  
+margin-right: 50px;  
+  margin-left: 25px;  
 `
 
 const Menu: React.FC<NavProps> = ({
@@ -133,9 +131,10 @@ const Menu: React.FC<NavProps> = ({
         />
         <Flex>
           <UserBlock account={account} login={login} logout={logout} />
-          <Button variant="subtle" style={{padding: '0px 16px',     height: '37px', marginLeft: '15px'}}>
+          <GearBackground>
             <Gear />
-          </Button>
+          </GearBackground>
+          {/* <img src={Gear} alt="" style={{marginLeft: '15px', marginRight: '15px'}} /> */}
           {/* Nav bar profile */}
           {profile && <Avatar profile={profile} />}
         </Flex>
