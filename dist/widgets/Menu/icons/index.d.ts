@@ -27,3 +27,4 @@ export { default as VaultsIcon } from "./Vaults";
 export { default as EggHouseIcon } from "./EggHouse";
 export { default as Astronaut } from "./Astronaut";
 export { default as Planet } from "./Planet";
+export { default as Gear } from "./Gear";

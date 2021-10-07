@@ -8,9 +8,11 @@ import Logo from "./Logo";
 import Panel from "./Panel";
 import UserBlock from "./UserBlock";
 import { NavProps } from "./types";
+import Button from "../../components/Button/Button";
 import { MENU_HEIGHT, SIDEBAR_WIDTH_REDUCED, SIDEBAR_WIDTH_FULL } from "./config";
 import Avatar from "./Avatar";
 const TopNavBG = require("./IconImage/BgHeader.svg") as string;
+import {Gear} from "./icons"
 
 const Wrapper = styled.div`
   position: relative;
@@ -59,6 +61,13 @@ const MobileOnlyOverlay = styled(Overlay)`
     display: none;
   }
 `;
+
+const GearBackground = styled.div`
+  background: ${({ theme }) => theme.colors.primary };
+  padding: 6px 11px;
+  border-radius: 40px;
+  margin-left: 15px;  
+`
 
 const Menu: React.FC<NavProps> = ({
   account,
@@ -124,6 +133,10 @@ const Menu: React.FC<NavProps> = ({
         />
         <Flex>
           <UserBlock account={account} login={login} logout={logout} />
+          <Button variant="subtle" style={{padding: '0px 16px',     height: '37px', marginLeft: '15px'}}>
+            <Gear />
+          </Button>
+          {/* Nav bar profile */}
           {profile && <Avatar profile={profile} />}
         </Flex>
       </StyledNav>
