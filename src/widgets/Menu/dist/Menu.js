@@ -37,7 +37,7 @@ var MobileOnlyOverlay = styled_components_1["default"](Overlay_1["default"])(tem
     var theme = _a.theme;
     return theme.mediaQueries.nav;
 });
-var GearBackground = styled_components_1["default"].div(templateObject_6 || (templateObject_6 = __makeTemplateObject(["\nmargin-right: 25px;  \n  margin-left: 25px;  \n"], ["\nmargin-right: 25px;  \n  margin-left: 25px;  \n"])));
+var GearBackground = styled_components_1["default"].div(templateObject_6 || (templateObject_6 = __makeTemplateObject(["\nmargin-right: 50px;  \n  margin-left: 25px;  \n"], ["\nmargin-right: 50px;  \n  margin-left: 25px;  \n"])));
 var Menu = function (_a) {
     var _b;
     var account = _a.account, login = _a.login, logout = _a.logout, isDark = _a.isDark, toggleTheme = _a.toggleTheme, langs = _a.langs, setLang = _a.setLang, currentLang = _a.currentLang, cakePriceUsd = _a.cakePriceUsd, links = _a.links, priceLink = _a.priceLink, profile = _a.profile, children = _a.children;
