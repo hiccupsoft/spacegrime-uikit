@@ -44,7 +44,7 @@ const StyledToggle = styled.div<{ checked: boolean }>`
   height: 40px;
   position: relative;
   transition: background-color 200ms;
-  width: 120px;
+  width: 100px;
 `;
 
 export default StyledToggle;

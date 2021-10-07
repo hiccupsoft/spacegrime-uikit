@@ -16,7 +16,7 @@ interface Props extends InjectedProps {
 
 const StyledModal = styled.div`
   background-size: contain;
-  height: 100vh;
+  height: auto;
   background-repeat: no-repeat;
   width: 100%;
   z-index: ${({ theme }) => theme.zIndices.modal};
@@ -41,9 +41,10 @@ const ModalTitle = styled(Flex)`
 const Logo = styled.div`
   position: absolute;
   right: 0;
-  // width: 50%;
-  // height: 100vh;
   z-index: -1;
+  width: 60%;
+  top: 0;
+  text-align: end;
 `;
 
 const Modal: React.FC<Props> = ({
@@ -73,7 +74,7 @@ const Modal: React.FC<Props> = ({
         // </IconButton>
       )}
     </ModalHeader>
-    <Flex flexDirection="column" p={bodyPadding} style={{ position: 'absolute',right: '0px',top: '50%',transform: 'translateY(-50%)'}} >
+    <Flex flexDirection="column" p={bodyPadding} style={{width: '374px',marginLeft: 'auto'}} >
       {children}
     </Flex>
   </StyledModal>
