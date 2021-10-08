@@ -22,7 +22,7 @@ const StyledPanel = styled.div<{ isPushed: boolean; showMenu: boolean }>`
   background-image: url(${BgSidebar});
   width: ${({ isPushed }) => (isPushed ? `${SIDEBAR_WIDTH_FULL}px` : 0)};
   height: 100vh;
-  background: aliceblue;
+  background: ${({  theme }) =>  theme.colors.background };
   transition: padding-top 0.2s, width 0.2s;
   border-right: ${({ isPushed }) => (isPushed ? "2px solid rgba(133, 133, 133, 0.1)" : 0)};
   z-index: 11;

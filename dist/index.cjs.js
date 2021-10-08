@@ -2023,7 +2023,7 @@ var StyledModal = styled__default['default'].div(templateObject_1$u || (template
 var ModalHeader = styled__default['default'].div(templateObject_2$9 || (templateObject_2$9 = __makeTemplateObject(["\n  text-align: right;\n  display: flex;\n  align-items: center;\n  // border-bottom: 1px solid #e9eaeb;\n  padding: 12px 24px;\n"], ["\n  text-align: right;\n  display: flex;\n  align-items: center;\n  // border-bottom: 1px solid #e9eaeb;\n  padding: 12px 24px;\n"])));
 styled__default['default'](Flex)(templateObject_3$5 || (templateObject_3$5 = __makeTemplateObject(["\n  align-items: center;\n  flex: 1;\n"], ["\n  align-items: center;\n  flex: 1;\n"])));
 var Logo$1 = styled__default['default'].div(templateObject_4$2 || (templateObject_4$2 = __makeTemplateObject(["\n  position: absolute;\n  right: 0;\n  z-index: -1;\n  width: 60%;\n  top: 0;\n  text-align: end;\n"], ["\n  position: absolute;\n  right: 0;\n  z-index: -1;\n  width: 60%;\n  top: 0;\n  text-align: end;\n"])));
-var ModalContent = styled__default['default'].div(templateObject_5$1 || (templateObject_5$1 = __makeTemplateObject(["\n  margin-right: -24px;\n  width: 374px;\n  margin-left: auto;\n  @media screen and (max-width: 768px) {\n    width: 300px;\n  }\n"], ["\n  margin-right: -24px;\n  width: 374px;\n  margin-left: auto;\n  @media screen and (max-width: 768px) {\n    width: 300px;\n  }\n"])));
+var ModalContent = styled__default['default'].div(templateObject_5$1 || (templateObject_5$1 = __makeTemplateObject(["\n  width: 374px;\n  margin-left: auto;\n  @media screen and (max-width: 768px) {\n    width: 300px;\n  }\n"], ["\n  width: 374px;\n  margin-left: auto;\n  @media screen and (max-width: 768px) {\n    width: 300px;\n  }\n"])));
 var Modal = function (_a) {
     _a.title; var onDismiss = _a.onDismiss; _a.onBack; var children = _a.children, _b = _a.hideCloseButton, hideCloseButton = _b === void 0 ? false : _b, _c = _a.bodyPadding, bodyPadding = _c === void 0 ? "24px" : _c;
     return (React__default['default'].createElement(StyledModal, null,
@@ -2338,8 +2338,8 @@ var MenuEntry = styled__default['default'].div(templateObject_3$6 || (templateOb
     var secondary = _a.secondary;
     return (secondary ? "14px" : "16px");
 }, function (_a) {
-    var secondary = _a.secondary; _a.theme;
-    return (secondary ? 'aliceblue' : "transparent");
+    var secondary = _a.secondary, theme = _a.theme;
+    return (secondary ? theme.colors.background : "transparent");
 }, function (_a) {
     var theme = _a.theme;
     return theme.colors.textSubtle;
@@ -2470,9 +2470,12 @@ var PanelFooter = function (_a) {
 var templateObject_1$C, templateObject_2$c, templateObject_3$7, templateObject_4$3;
 
 var BgSidebar = require("./IconImage/BgSidebar.svg");
-var StyledPanel = styled__default['default'].div(templateObject_1$D || (templateObject_1$D = __makeTemplateObject(["\n  position: fixed;\n  top: 0;\n  left: 0;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  flex-shrink: 0;\n  background-image: url(", ");\n  width: ", ";\n  height: 100vh;\n  background: aliceblue;\n  transition: padding-top 0.2s, width 0.2s;\n  border-right: ", ";\n  z-index: 11;\n  overflow: ", ";\n  transform: translate3d(0, 0, 0);\n\n  ", " {\n    border-right: 2px solid rgba(133, 133, 133, 0.1);\n    width: ", ";\n  }\n"], ["\n  position: fixed;\n  top: 0;\n  left: 0;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  flex-shrink: 0;\n  background-image: url(", ");\n  width: ", ";\n  height: 100vh;\n  background: aliceblue;\n  transition: padding-top 0.2s, width 0.2s;\n  border-right: ", ";\n  z-index: 11;\n  overflow: ", ";\n  transform: translate3d(0, 0, 0);\n\n  ", " {\n    border-right: 2px solid rgba(133, 133, 133, 0.1);\n    width: ", ";\n  }\n"])), BgSidebar, function (_a) {
+var StyledPanel = styled__default['default'].div(templateObject_1$D || (templateObject_1$D = __makeTemplateObject(["\n  position: fixed;\n  top: 0;\n  left: 0;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  flex-shrink: 0;\n  background-image: url(", ");\n  width: ", ";\n  height: 100vh;\n  background: ", ";\n  transition: padding-top 0.2s, width 0.2s;\n  border-right: ", ";\n  z-index: 11;\n  overflow: ", ";\n  transform: translate3d(0, 0, 0);\n\n  ", " {\n    border-right: 2px solid rgba(133, 133, 133, 0.1);\n    width: ", ";\n  }\n"], ["\n  position: fixed;\n  top: 0;\n  left: 0;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  flex-shrink: 0;\n  background-image: url(", ");\n  width: ", ";\n  height: 100vh;\n  background: ", ";\n  transition: padding-top 0.2s, width 0.2s;\n  border-right: ", ";\n  z-index: 11;\n  overflow: ", ";\n  transform: translate3d(0, 0, 0);\n\n  ", " {\n    border-right: 2px solid rgba(133, 133, 133, 0.1);\n    width: ", ";\n  }\n"])), BgSidebar, function (_a) {
     var isPushed = _a.isPushed;
     return (isPushed ? SIDEBAR_WIDTH_FULL + "px" : 0);
+}, function (_a) {
+    var theme = _a.theme;
+    return theme.colors.background;
 }, function (_a) {
     var isPushed = _a.isPushed;
     return (isPushed ? "2px solid rgba(133, 133, 133, 0.1)" : 0);
@@ -2732,10 +2735,13 @@ var templateObject_1$G, templateObject_2$e;
 
 var TopNavBG = require("./IconImage/BgHeader.svg");
 var Wrapper$1 = styled__default['default'].div(templateObject_1$H || (templateObject_1$H = __makeTemplateObject(["\n  position: relative;\n  width: 100%;\n"], ["\n  position: relative;\n  width: 100%;\n"])));
-var StyledNav = styled__default['default'].nav(templateObject_2$f || (templateObject_2$f = __makeTemplateObject(["\n  position: fixed;\n  top: ", ";\n  left: 0;\n  transition: top 0.2s;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding-left: 8px;\n  padding-right: 16px;\n  margin-left: 240px;\n  width: 83%;\n  height: ", "px;\n  background-image: url(", ");\n  border-bottom: solid 2px rgba(133, 133, 133, 0.1);\n  z-index: 20;\n  transform: translate3d(0, 0, 0);\n  background: aliceblue;\n  @media screen and (max-width: 450px) {\n    width: 100% !important;\n    margin-left: 0px !important;\n  }\n  @media screen and (max-width: 768px) {\n    width: 100% !important;\n    margin-left: 0px !important;\n  }\n"], ["\n  position: fixed;\n  top: ", ";\n  left: 0;\n  transition: top 0.2s;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding-left: 8px;\n  padding-right: 16px;\n  margin-left: 240px;\n  width: 83%;\n  height: ", "px;\n  background-image: url(", ");\n  border-bottom: solid 2px rgba(133, 133, 133, 0.1);\n  z-index: 20;\n  transform: translate3d(0, 0, 0);\n  background: aliceblue;\n  @media screen and (max-width: 450px) {\n    width: 100% !important;\n    margin-left: 0px !important;\n  }\n  @media screen and (max-width: 768px) {\n    width: 100% !important;\n    margin-left: 0px !important;\n  }\n"])), function (_a) {
+var StyledNav = styled__default['default'].nav(templateObject_2$f || (templateObject_2$f = __makeTemplateObject(["\n  position: fixed;\n  top: ", ";\n  left: 0;\n  transition: top 0.2s;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding-left: 8px;\n  padding-right: 16px;\n  margin-left: 240px;\n  width: 83%;\n  height: ", "px;\n  background-image: url(", ");\n  border-bottom: solid 2px rgba(133, 133, 133, 0.1);\n  z-index: 20;\n  transform: translate3d(0, 0, 0);\n  background: ", ";\n  @media screen and (max-width: 450px) {\n    width: 100% !important;\n    margin-left: 0px !important;\n  }\n  @media screen and (max-width: 768px) {\n    width: 100% !important;\n    margin-left: 0px !important;\n  }\n  @media screen and (min-width: 1500px) {\n    width: 88% !important;\n  }\n  @media screen and (min-width: 2010px) {\n    width: 91% !important;\n  }\n"], ["\n  position: fixed;\n  top: ", ";\n  left: 0;\n  transition: top 0.2s;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding-left: 8px;\n  padding-right: 16px;\n  margin-left: 240px;\n  width: 83%;\n  height: ", "px;\n  background-image: url(", ");\n  border-bottom: solid 2px rgba(133, 133, 133, 0.1);\n  z-index: 20;\n  transform: translate3d(0, 0, 0);\n  background: ", ";\n  @media screen and (max-width: 450px) {\n    width: 100% !important;\n    margin-left: 0px !important;\n  }\n  @media screen and (max-width: 768px) {\n    width: 100% !important;\n    margin-left: 0px !important;\n  }\n  @media screen and (min-width: 1500px) {\n    width: 88% !important;\n  }\n  @media screen and (min-width: 2010px) {\n    width: 91% !important;\n  }\n"])), function (_a) {
     var showMenu = _a.showMenu;
     return (showMenu ? 0 : "-" + MENU_HEIGHT + "px");
-}, MENU_HEIGHT, TopNavBG);
+}, MENU_HEIGHT, TopNavBG, function (_a) {
+    var theme = _a.theme;
+    return theme.colors.background;
+});
 var BodyWrapper = styled__default['default'].div(templateObject_3$8 || (templateObject_3$8 = __makeTemplateObject(["\n  position: relative;\n  display: flex;\n"], ["\n  position: relative;\n  display: flex;\n"])));
 var Inner = styled__default['default'].div(templateObject_4$4 || (templateObject_4$4 = __makeTemplateObject(["\n  flex-grow: 1;\n  margin-top: ", ";\n  transition: margin-top 0.2s;\n  transform: translate3d(0, 0, 0);\n  ", " {\n    margin-left: ", ";\n  }\n"], ["\n  flex-grow: 1;\n  margin-top: ", ";\n  transition: margin-top 0.2s;\n  transform: translate3d(0, 0, 0);\n  ", " {\n    margin-left: ", ";\n  }\n"])), function (_a) {
     var showMenu = _a.showMenu;

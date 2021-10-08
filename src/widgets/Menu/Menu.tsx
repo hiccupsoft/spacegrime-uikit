@@ -37,7 +37,7 @@ const StyledNav = styled.nav<{ showMenu: boolean }>`
   border-bottom: solid 2px rgba(133, 133, 133, 0.1);
   z-index: 20;
   transform: translate3d(0, 0, 0);
-  background: aliceblue;
+  background: ${({  theme }) =>  theme.colors.background };
   @media screen and (max-width: 450px) {
     width: 100% !important;
     margin-left: 0px !important;
@@ -45,6 +45,12 @@ const StyledNav = styled.nav<{ showMenu: boolean }>`
   @media screen and (max-width: 768px) {
     width: 100% !important;
     margin-left: 0px !important;
+  }
+  @media screen and (min-width: 1500px) {
+    width: 88% !important;
+  }
+  @media screen and (min-width: 2010px) {
+    width: 91% !important;
   }
 `;
 

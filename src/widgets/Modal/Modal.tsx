@@ -48,7 +48,6 @@ const Logo = styled.div`
 `;
 
 const ModalContent = styled.div`
-  margin-right: -24px;
   width: 374px;
   margin-left: auto;
   @media screen and (max-width: 768px) {

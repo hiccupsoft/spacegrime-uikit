@@ -21,7 +21,7 @@ var MenuEntry = styled_components_1["default"].div(templateObject_3 || (template
     return (secondary ? "14px" : "16px");
 }, function (_a) {
     var secondary = _a.secondary, theme = _a.theme;
-    return (secondary ? 'aliceblue' : "transparent");
+    return (secondary ? theme.colors.background : "transparent");
 }, function (_a) {
     var theme = _a.theme;
     return theme.colors.textSubtle;
