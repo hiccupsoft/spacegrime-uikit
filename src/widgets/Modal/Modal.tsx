@@ -47,6 +47,15 @@ const Logo = styled.div`
   text-align: end;
 `;
 
+const ModalContent = styled.div`
+  margin-right: -24px;
+  width: 374px;
+  margin-left: auto;
+  @media screen and (max-width: 768px) {
+    width: 300px;
+  }
+`
+
 const Modal: React.FC<Props> = ({
   title,
   onDismiss,
@@ -74,9 +83,11 @@ const Modal: React.FC<Props> = ({
         // </IconButton>
       )}
     </ModalHeader>
-    <Flex flexDirection="column" p={bodyPadding} style={{width: '374px',marginLeft: 'auto'}} >
-      {children}
-    </Flex>
+    <ModalContent>
+      <Flex flexDirection="column" p={bodyPadding}  >
+        {children}
+      </Flex>
+    </ModalContent>
   </StyledModal>
 );
 

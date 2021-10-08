@@ -37,7 +37,12 @@ const StyledNav = styled.nav<{ showMenu: boolean }>`
   border-bottom: solid 2px rgba(133, 133, 133, 0.1);
   z-index: 20;
   transform: translate3d(0, 0, 0);
+  background: aliceblue;
   @media screen and (max-width: 450px) {
+    width: 100% !important;
+    margin-left: 0px !important;
+  }
+  @media screen and (max-width: 768px) {
     width: 100% !important;
     margin-left: 0px !important;
   }
@@ -71,7 +76,7 @@ const GearBackground = styled.div`
   margin-right: 50px;  
   margin-left: 25px;  
   @media screen and (max-width: 450px) {
-    margin-left: 0px !important;  
+    margin-left: 0px !important;
   }
 `
 
