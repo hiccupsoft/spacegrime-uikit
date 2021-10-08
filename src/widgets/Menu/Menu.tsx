@@ -37,6 +37,10 @@ const StyledNav = styled.nav<{ showMenu: boolean }>`
   border-bottom: solid 2px rgba(133, 133, 133, 0.1);
   z-index: 20;
   transform: translate3d(0, 0, 0);
+  @media screen and (max-width: 450px) {
+    width: 100% !important;
+    margin-left: 0px !important;
+  }
 `;
 
 const BodyWrapper = styled.div`
@@ -64,8 +68,11 @@ const MobileOnlyOverlay = styled(Overlay)`
 `;
 
 const GearBackground = styled.div`
-margin-right: 50px;  
+  margin-right: 50px;  
   margin-left: 25px;  
+  @media screen and (max-width: 450px) {
+    margin-left: 0px !important;  
+  }
 `
 
 const Menu: React.FC<NavProps> = ({
@@ -133,7 +140,7 @@ const Menu: React.FC<NavProps> = ({
         <Flex>
           <UserBlock account={account} login={login} logout={logout} />
           <GearBackground>
-            <Gear />
+            <Gear/>
           </GearBackground>
           {/* <img src={Gear} alt="" style={{marginLeft: '15px', marginRight: '15px'}} /> */}
           {/* Nav bar profile */}
