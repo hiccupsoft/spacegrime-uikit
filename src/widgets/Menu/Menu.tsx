@@ -8,12 +8,10 @@ import Logo from "./Logo";
 import Panel from "./Panel";
 import UserBlock from "./UserBlock";
 import { NavProps } from "./types";
-import Button from "../../components/Button/Button";
 import { MENU_HEIGHT, SIDEBAR_WIDTH_REDUCED, SIDEBAR_WIDTH_FULL } from "./config";
 import Avatar from "./Avatar";
 const TopNavBG = require("./IconImage/BgHeader.svg") as string;
 import {Gear} from "./icons"
-import {NavBg} from "./icons"
 
 const Wrapper = styled.div`
   position: relative;
@@ -100,6 +98,7 @@ const Menu: React.FC<NavProps> = ({
   priceLink,
   profile,
   children,
+  imgUrl,
 }) => {
   const { isXl } = useMatchBreakpoints();
   const isMobile = isXl === false;
@@ -172,6 +171,7 @@ const Menu: React.FC<NavProps> = ({
           pushNav={setIsPushed}
           links={links}
           priceLink={priceLink}
+          imgUrl={imgUrl}
         />
         <Inner isPushed={isPushed} showMenu={showMenu}>
           {children}

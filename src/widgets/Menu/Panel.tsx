@@ -10,6 +10,7 @@ const BgSidebar = require("./IconImage/BgSidebar.svg") as string;
 interface Props extends PanelProps, PushedProps {
   showMenu: boolean;
   isMobile: boolean;
+  imgUrl: string
 }
 
 const StyledPanel = styled.div<{ isPushed: boolean; showMenu: boolean }>`
@@ -20,7 +21,7 @@ const StyledPanel = styled.div<{ isPushed: boolean; showMenu: boolean }>`
   flex-direction: column;
   justify-content: space-between;
   flex-shrink: 0;
-  background-image: url(${BgSidebar});
+  /* background-image: url(${BgSidebar}); */
   width: ${({ isPushed }) => (isPushed ? `${SIDEBAR_WIDTH_FULL}px` : 0)};
   height: 100vh;
   background: ${({  theme }) =>  theme.colors.background };
@@ -37,11 +38,12 @@ const StyledPanel = styled.div<{ isPushed: boolean; showMenu: boolean }>`
 `;
 
 const Panel: React.FC<Props> = (props) => {
-  const { isPushed, showMenu } = props;
+  const { isPushed, showMenu, imgUrl } = props;
   return (
     <div>
       <StyledPanel isPushed={isPushed} showMenu={showMenu}>
-        <Astronaut width={`${SIDEBAR_WIDTH_FULL + 160}px`}/>
+        <img src={imgUrl} alt="logo" width={`${SIDEBAR_WIDTH_FULL + 160}px`} />
+        {/* <Astronaut width={`${SIDEBAR_WIDTH_FULL + 160}px`}/> */}
         <PanelBody {...props} />
         <PanelFooter {...props} />
       </StyledPanel>
