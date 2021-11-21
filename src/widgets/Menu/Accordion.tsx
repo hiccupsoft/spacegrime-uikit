@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import { MENU_ENTRY_HEIGHT } from "./config";
 import { MenuEntry, LinkLabel } from "./MenuEntry";
@@ -10,6 +10,9 @@ interface Props extends PushedProps {
   icon: React.ReactElement;
   initialOpenState?: boolean;
   className?: string;
+  id: number;
+  open: number;
+  setOpenItem: (id:number)=>void;
 }
 
 const Container = styled.div`
@@ -26,6 +29,7 @@ const AccordionContent = styled.div<{ isOpen: boolean; isPushed: boolean; maxHei
   border-color: ${({ isOpen, isPushed }) => (isOpen && isPushed ? "rgba(133, 133, 133, 0.1)" : "transparent")};
   border-style: solid;
   border-width: 1px;
+  padding-left: 30px;
 `;
 
 const Accordion: React.FC<Props> = ({
@@ -33,19 +37,26 @@ const Accordion: React.FC<Props> = ({
   icon,
   isPushed,
   pushNav,
-  initialOpenState = false,
+  // initialOpenState = false,
   children,
   className,
+  setOpenItem,
+  open,
+  id,
 }) => {
-  const [isOpen, setIsOpen] = useState(initialOpenState);
+  // const [isOpen, setIsOpen] = useState(initialOpenState);
 
   const handleClick = () => {
     if (isPushed) {
-      setIsOpen((prevState) => !prevState);
+      // setIsOpen((prevState) => !prevState);
     } else {
       pushNav(true);
-      setIsOpen(true);
+      // setIsOpen(true);
     }
+    if(id === open)
+      setOpenItem(-1);
+    else
+      setOpenItem(id);
   };
 
   return (
@@ -53,11 +64,11 @@ const Accordion: React.FC<Props> = ({
       <MenuEntry onClick={handleClick} className={className}>
         {icon}
         <LinkLabel isPushed={isPushed}>{label}</LinkLabel>
-        {isOpen ? <ArrowDropUpIcon /> : <ArrowDropDownIcon />}
+        {open === id ? <ArrowDropUpIcon /> : <ArrowDropDownIcon />}
       </MenuEntry>
       <AccordionContent
-        style={{ boxShadow:  `${isOpen ? '0px 1px 13px #0f0f6e' : ''}`  }}
-        isOpen={isOpen}
+        style={{ boxShadow:  `${open === id ? '10px 12px 30px -6px rgba(15, 15, 110, 50%)' : ''}`  }}
+        isOpen={open === id}
         isPushed={isPushed}
         maxHeight={React.Children.count(children) * MENU_ENTRY_HEIGHT}
       >

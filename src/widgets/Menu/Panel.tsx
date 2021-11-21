@@ -24,7 +24,7 @@ const StyledPanel = styled.div<{ isPushed: boolean; showMenu: boolean }>`
   /* background-image: url(${BgSidebar}); */
   width: ${({ isPushed }) => (isPushed ? `${SIDEBAR_WIDTH_FULL}px` : 0)};
   height: 100vh;
-  background: ${({  theme }) =>  theme.colors.background };
+  background: ${({  theme }) =>  `linear-gradient(90deg, ${theme.colors.background}, ${theme.colors.background}, ${theme.colors.background}, ${theme.colors.backgroundGradient})` };
   transition: padding-top 0.2s, width 0.2s;
   border-right: ${({ isPushed }) => (isPushed ? "2px solid rgba(133, 133, 133, 0.1)" : 0)};
   z-index: 11;
@@ -32,18 +32,16 @@ const StyledPanel = styled.div<{ isPushed: boolean; showMenu: boolean }>`
   transform: translate3d(0, 0, 0);
 
   ${({ theme }) => theme.mediaQueries.nav} {
-    border-right: 2px solid rgba(133, 133, 133, 0.1);
     width: ${({ isPushed }) => `${isPushed ? SIDEBAR_WIDTH_FULL : SIDEBAR_WIDTH_REDUCED}px`};
   }
 `;
 
 const Panel: React.FC<Props> = (props) => {
-  const { isPushed, showMenu, imgUrl } = props;
+  const { isPushed, showMenu } = props;
   return (
     <div>
       <StyledPanel isPushed={isPushed} showMenu={showMenu}>
-        <img src={imgUrl} alt="logo" width={`${SIDEBAR_WIDTH_FULL + 160}px`} />
-        {/* <Astronaut width={`${SIDEBAR_WIDTH_FULL + 160}px`}/> */}
+        <Astronaut width={`${SIDEBAR_WIDTH_FULL + 160}px`}/>
         <PanelBody {...props} />
         <PanelFooter {...props} />
       </StyledPanel>
