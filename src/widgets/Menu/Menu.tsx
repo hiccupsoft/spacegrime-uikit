@@ -1,3 +1,5 @@
+/* eslint-disable import/order */
+/* eslint-disable @typescript-eslint/no-var-requires */
 import React, { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
 import throttle from "lodash/throttle";
@@ -10,8 +12,9 @@ import UserBlock from "./UserBlock";
 import { NavProps } from "./types";
 import { MENU_HEIGHT, SIDEBAR_WIDTH_REDUCED, SIDEBAR_WIDTH_FULL } from "./config";
 import Avatar from "./Avatar";
-const TopNavBG = require("./IconImage/BgHeader.svg") as string;
 import {Gear} from "./icons"
+// eslint-disable-next-line global-require
+const TopNavBG = require("./IconImage/BgHeader.svg") as string;
 
 const Wrapper = styled.div`
   position: relative;
@@ -19,6 +22,7 @@ const Wrapper = styled.div`
 `;
 
 const StyledNav = styled.nav<{ showMenu: boolean }>`
+  z-index: -10 !important;
   position: fixed;
   top: ${({ showMenu }) => (showMenu ? 0 : `-${MENU_HEIGHT}px`)};
   left: 0;
@@ -28,14 +32,13 @@ const StyledNav = styled.nav<{ showMenu: boolean }>`
   align-items: center;
   padding-left: 8px;
   padding-right: 16px;
-  margin-left: 240px;
-  width: 83%;
+  margin-left: 320px;
+  width: 70%;
   height: ${MENU_HEIGHT}px;
   background-image: url(${TopNavBG});
-  border-bottom: solid 2px rgba(133, 133, 133, 0.1);
+  border-bottom: solid 1px blue;
   z-index: 20;
   transform: translate3d(0, 0, 0);
-  background: ${({  theme }) =>  theme.colors.background };
   @media screen and (max-width: 450px) {
     width: 100% !important;
     margin-left: 0px !important;
@@ -140,22 +143,23 @@ const Menu: React.FC<NavProps> = ({
 
   return (
     <Wrapper>
-      <StyledNav showMenu={showMenu}>
-        <Logo
-          isPushed={isPushed}
-          togglePush={() => setIsPushed((prevState: boolean) => !prevState)}
-          isDark={isDark}
-          href={homeLink?.href ?? "/"}
-        />
-        <Flex>
-          <UserBlock account={account} login={login} logout={logout} />
-          <GearBackground>
-            <Gear/>
-          </GearBackground>
-          {/* <img src={Gear} alt="" style={{marginLeft: '15px', marginRight: '15px'}} /> */}
-          {/* Nav bar profile */}
-          {profile && <Avatar profile={profile} />}
-        </Flex>
+      <StyledNav showMenu={showMenu} >
+
+          <Logo
+            isPushed={isPushed}
+            togglePush={() => setIsPushed((prevState: boolean) => !prevState)}
+            isDark={isDark}
+            href={homeLink?.href ?? "/"}
+          />
+          <Flex>
+            <UserBlock account={account} login={login} logout={logout} />
+            <GearBackground>
+              <Gear/>
+            </GearBackground>
+            {/* <img src={Gear} alt="" style={{marginLeft: '15px', marginRight: '15px'}} /> */}
+            {/* Nav bar profile */}
+            {profile && <Avatar profile={profile} />}
+          </Flex>
       </StyledNav>
       <BodyWrapper>
         <Panel

@@ -37,14 +37,13 @@ const PanelBody: React.FC<Props> = ({ isPushed, pushNav, isMobile, links }) => {
   return (
     <Container>
       {links.map((entry, index) => {
-        console.log(index, openItem)
         const Icon = Icons[entry.icon];
         const iconElement = <Icon 
                               width="18px" mr="8px" 
                               stroke="currentColor" 
                               fill="currentColor" 
                               style={{color: index!==openItem ? '#33adff' : 'white',
-                                      fill: index!==openItem ? '#33adff' : 'white'}} 
+                                      fill: index!==openItem ? '#33adff' : 'white'}}
                             />;
         const calloutClass = entry.calloutClass ? entry.calloutClass : undefined;
 
