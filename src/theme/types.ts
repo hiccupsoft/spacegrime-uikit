@@ -44,7 +44,6 @@ export type Colors = {
   invertedContrast: string;
   input: string;
   background: string;
-  backgroundGradient: string,
   backgroundDisabled: string;
   text: string;
   textDisabled: string;

@@ -1,18 +1,24 @@
+/* eslint-disable import/no-useless-path-segments */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable jsx-a11y/alt-text */
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { LogoIcon } from "../../components/Svg";
+import LogoDark from "../Menu/icons/Logo_dark";
+import LogoLight from "../Menu/icons/Logo_light";
 import Flex from "../../components/Flex/Flex";
 import { HamburgerIcon, HamburgerCloseIcon, LogoIcon as LogoWithText } from "./icons";
 import MenuButton from "./MenuButton";
-import Img from './IconImage/SpaceGrime_Text_Logo_Dark.png'
+// eslint-disable-next-line global-require
 
 interface Props {
   isPushed: boolean;
   isDark: boolean;
   togglePush: () => void;
   href: string;
+  isMobile: boolean;
 }
 
 const StyledLink = styled(Link)`
@@ -33,7 +39,7 @@ const StyledLink = styled(Link)`
   }
 `;
 
-const Logo: React.FC<Props> = ({ isPushed, togglePush, isDark, href }) => {
+const Logo: React.FC<Props> = ({ isPushed, togglePush, isDark, href, isMobile }) => {
   const isAbsoluteUrl = href.startsWith("http");
   const innerLogo = (
     <>
@@ -45,13 +51,12 @@ const Logo: React.FC<Props> = ({ isPushed, togglePush, isDark, href }) => {
   return (
     <Flex>
       <MenuButton aria-label="Toggle menu" onClick={togglePush} mr="24px">
-        <img src={Img} width="300px" />
-        {/* {isPushed ? (
-          // <HamburgerCloseIcon width="24px" color="textSubtle" />
+        {isPushed ? (
+          <HamburgerCloseIcon width="24px" color="textSubtle" />
         ) : (
-          // <HamburgerIcon width="24px" color="textSubtle" />
-        )} */}
-
+          <HamburgerIcon width="24px" color="textSubtle" />
+        )}
+        {isDark ? <LogoDark /> : <LogoLight />}
       </MenuButton>
       {/* {isAbsoluteUrl ? (
         <StyledLink as="a" href={href} aria-label="Pancake home page">

@@ -8,6 +8,7 @@ interface Props extends PushedProps {
     id: number;
     open: number;
     setOpenItem: (id: number) => void;
+    isMobile?: boolean;
 }
 declare const Accordion: React.FC<Props>;
 export default Accordion;

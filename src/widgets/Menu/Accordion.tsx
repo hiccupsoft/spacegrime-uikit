@@ -13,6 +13,7 @@ interface Props extends PushedProps {
   id: number;
   open: number;
   setOpenItem: (id:number)=>void;
+  isMobile?: boolean;
 }
 
 const Container = styled.div`

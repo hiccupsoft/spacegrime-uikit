@@ -1,4 +1,6 @@
+/* eslint-disable global-require */
 import { Colors } from "./types";
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 
 export const baseColors = {
   failure: "#ED4B9E",
@@ -17,7 +19,7 @@ export const brandColors = {
 export const lightColors: Colors = {
   ...baseColors,
   ...brandColors,
-  background: "#d3d8fe",
+  background: "",
   backgroundDisabled: "#E9EAEB",
   contrast: "#191326",
   invertedContrast: "#f4f6f9",

@@ -14,13 +14,13 @@ interface Props extends PanelProps, PushedProps {
 
 const Icons = (IconModule as unknown) as { [key: string]: React.FC<SvgProps> };
 
-const Container = styled.div`
+const Container = styled.div<{isPushed: boolean}>`
   display: flex;
   flex-direction: column;
   /* overflow-y: auto;
   overflow-x: hidden; */
   height: 100%;
-  margin-top: -100%;
+  margin-top: ${props => !props.isPushed ? '40%' : '-100%'};
   width: 100%;
 `;
 
@@ -35,7 +35,7 @@ const PanelBody: React.FC<Props> = ({ isPushed, pushNav, isMobile, links }) => {
   const handleClick = isMobile ? () => pushNav(false) : undefined;
 
   return (
-    <Container>
+    <Container isPushed={isPushed} >
       {links.map((entry, index) => {
         const Icon = Icons[entry.icon];
         const iconElement = <Icon 
@@ -61,6 +61,7 @@ const PanelBody: React.FC<Props> = ({ isPushed, pushNav, isMobile, links }) => {
               id={index}
               open={openItem}
               setOpenItem={setOpenItemNumber}
+              isMobile={isMobile}
             >
               {isPushed &&
                 entry.items.map((item) => (
