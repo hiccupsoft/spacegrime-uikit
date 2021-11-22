@@ -2136,13 +2136,15 @@ styled(Link$1)(templateObject_1$y || (templateObject_1$y = __makeTemplateObject(
     return theme.mediaQueries.nav;
 });
 var Logo$2 = function (_a) {
-    _a.isPushed; var togglePush = _a.togglePush, isDark = _a.isDark, href = _a.href;
+    var isPushed = _a.isPushed, togglePush = _a.togglePush, isDark = _a.isDark, href = _a.href; _a.isMobile;
     href.startsWith("http");
     (React.createElement(React.Fragment, null,
         React.createElement(Icon$q, { className: "mobile-icon" }),
         React.createElement(Logo, { className: "desktop-icon", isDark: isDark })));
     return (React.createElement(Flex, null,
-        React.createElement(MenuButton, { "aria-label": "Toggle menu", onClick: togglePush, mr: "24px" }, isDark ? React.createElement(LogoDark, null) : React.createElement(LogoLight, null))));
+        React.createElement(MenuButton, { "aria-label": "Toggle menu", onClick: togglePush, mr: "24px" },
+            isPushed ? (React.createElement(Icon$L, { width: "24px", color: "textSubtle" })) : (React.createElement(Icon$K, { width: "24px", color: "textSubtle" })),
+            isDark ? React.createElement(LogoDark, null) : React.createElement(LogoLight, null))));
 };
 var templateObject_1$y;
 
@@ -2412,7 +2414,7 @@ var MenuLink = function (_a) {
 };
 
 var Icons = IconModule;
-var Container$3 = styled.div(templateObject_1$B || (templateObject_1$B = __makeTemplateObject(["\n  display: flex;\n  flex-direction: column;\n  /* overflow-y: auto;\n  overflow-x: hidden; */\n  height: 100%;\n  margin-top: ", ";\n  width: 100%;\n"], ["\n  display: flex;\n  flex-direction: column;\n  /* overflow-y: auto;\n  overflow-x: hidden; */\n  height: 100%;\n  margin-top: ", ";\n  width: 100%;\n"])), function (props) { return props.isMobile ? '40%' : '-100%'; });
+var Container$3 = styled.div(templateObject_1$B || (templateObject_1$B = __makeTemplateObject(["\n  display: flex;\n  flex-direction: column;\n  /* overflow-y: auto;\n  overflow-x: hidden; */\n  height: 100%;\n  margin-top: ", ";\n  width: 100%;\n"], ["\n  display: flex;\n  flex-direction: column;\n  /* overflow-y: auto;\n  overflow-x: hidden; */\n  height: 100%;\n  margin-top: ", ";\n  width: 100%;\n"])), function (props) { return !props.isPushed ? '40%' : '-100%'; });
 var PanelBody = function (_a) {
     var isPushed = _a.isPushed, pushNav = _a.pushNav, isMobile = _a.isMobile, links = _a.links;
     var location = useLocation();
@@ -2422,7 +2424,7 @@ var PanelBody = function (_a) {
     };
     // Close the menu when a user clicks a link on mobile
     var handleClick = isMobile ? function () { return pushNav(false); } : undefined;
-    return (React.createElement(Container$3, { isMobile: isMobile }, links.map(function (entry, index) {
+    return (React.createElement(Container$3, { isPushed: isPushed }, links.map(function (entry, index) {
         var Icon = Icons[entry.icon];
         var iconElement = React.createElement(Icon, { width: "18px", mr: "8px", stroke: "currentColor", fill: "currentColor", style: { color: index !== openItem ? '#33adff' : 'white',
                 fill: index !== openItem ? '#33adff' : 'white' } });
@@ -2490,9 +2492,12 @@ var PanelFooter = function (_a) {
 };
 var templateObject_1$C, templateObject_2$c, templateObject_3$7, templateObject_4$3;
 
-// eslint-disable-next-line global-require
-var BgSidebar = require("./IconImage/BgSidebar.svg");
-var StyledPanel = styled.div(templateObject_1$D || (templateObject_1$D = __makeTemplateObject(["\n  position: fixed;\n  top: 0;\n  left: 0;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  flex-shrink: 0;\n  /* background-image: url(", "); */\n  width: ", ";\n  height: 100vh;\n  transition: padding-top 0.2s, width 0.2s;\n  /* border-right: ", "; */\n  z-index: 11;\n  overflow: ", ";\n  transform: translate3d(0, 0, 0);\n\n  ", " {\n    width: ", ";\n  }\n"], ["\n  position: fixed;\n  top: 0;\n  left: 0;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  flex-shrink: 0;\n  /* background-image: url(", "); */\n  width: ", ";\n  height: 100vh;\n  transition: padding-top 0.2s, width 0.2s;\n  /* border-right: ", "; */\n  z-index: 11;\n  overflow: ", ";\n  transform: translate3d(0, 0, 0);\n\n  ", " {\n    width: ", ";\n  }\n"])), BgSidebar, function (_a) {
+var StyledPanel = styled.div(templateObject_1$D || (templateObject_1$D = __makeTemplateObject(["\n  position: fixed;\n  top: 0;\n  left: 0;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  flex-shrink: 0;\n\n  background-image:   ", ";\n  width: ", ";\n  height: 100vh;\n  transition: padding-top 0.2s, width 0.2s;\n  /* border-right: ", "; */\n  z-index: 11;\n  overflow: ", ";\n  transform: translate3d(0, 0, 0);\n\n  ", " {\n    width: ", ";\n  }\n"], ["\n  position: fixed;\n  top: 0;\n  left: 0;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  flex-shrink: 0;\n\n  background-image:   ",
+    ";\n  width: ", ";\n  height: 100vh;\n  transition: padding-top 0.2s, width 0.2s;\n  /* border-right: ", "; */\n  z-index: 11;\n  overflow: ", ";\n  transform: translate3d(0, 0, 0);\n\n  ", " {\n    width: ", ";\n  }\n"])), function (props) {
+    if (!props.isDark)
+        return "linear-gradient(to right, rgba(181,189,255,.8),rgba(181,189,255,.8),rgba(181,189,255,.8),rgba(181,189,255,.8),rgba(181,189,255,.8),rgba(181,189,255,0.8),rgba(181,189,255,.6),rgba(181,189,255,0.2));";
+    return undefined;
+}, function (_a) {
     var isPushed = _a.isPushed;
     return (isPushed ? SIDEBAR_WIDTH_FULL + "px" : 0);
 }, function (_a) {
@@ -2509,10 +2514,10 @@ var StyledPanel = styled.div(templateObject_1$D || (templateObject_1$D = __makeT
     return (isPushed ? SIDEBAR_WIDTH_FULL : SIDEBAR_WIDTH_REDUCED) + "px";
 });
 var Panel = function (props) {
-    var isPushed = props.isPushed, showMenu = props.showMenu; props.isMobile;
+    var isPushed = props.isPushed, showMenu = props.showMenu, isDark = props.isDark;
     return (React.createElement("div", null,
-        React.createElement(StyledPanel, { isPushed: isPushed, showMenu: showMenu },
-            React.createElement(Icon$16, { width: SIDEBAR_WIDTH_FULL + 160 + "px", isVisible: !showMenu }),
+        React.createElement(StyledPanel, { isPushed: isPushed, showMenu: showMenu, isDark: isDark },
+            React.createElement(Icon$16, { width: SIDEBAR_WIDTH_FULL + 160 + "px", isVisible: isPushed }),
             React.createElement(PanelBody, __assign({}, props)),
             React.createElement(PanelFooter, __assign({}, props)))));
 };
@@ -2755,9 +2760,15 @@ var templateObject_1$G, templateObject_2$e;
 // eslint-disable-next-line global-require
 // const TopNavBG = require("./IconImage/BgHeader.svg") as string;
 var Wrapper$1 = styled.div(templateObject_1$H || (templateObject_1$H = __makeTemplateObject(["\n  position: relative;\n  width: 100%;\n"], ["\n  position: relative;\n  width: 100%;\n"])));
-var StyledNav = styled.nav(templateObject_2$f || (templateObject_2$f = __makeTemplateObject(["\n  z-index: -10 !important;\n  position: fixed;\n  top: ", ";\n  left: 0;\n  transition: top 0.2s;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding-left: 8px;\n  padding-right: 16px;\n  margin-left: 320px;\n  width: 70%;\n  height: ", "px;\n  border-bottom: solid 1px blue;\n  z-index: 20;\n  transform: translate3d(0, 0, 0);\n  @media screen and (min-width: 960px) {\n    width: 100% !important;\n    margin-left: 0px !important;\n  }\n  @media screen and (min-width: 1100px) {\n    width: 70% !important;\n  }\n  @media screen and (min-width: 1300px) {\n    width: 74% !important;\n  }\n  @media screen and (min-width: 1500px) {\n    width: 77% !important;\n  }\n  @media screen and (min-width: 1700px) {\n    width: 79% !important;\n  }\n  @media screen and (min-width: 2010px) {\n    width: 91% !important;\n  }\n"], ["\n  z-index: -10 !important;\n  position: fixed;\n  top: ", ";\n  left: 0;\n  transition: top 0.2s;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding-left: 8px;\n  padding-right: 16px;\n  margin-left: 320px;\n  width: 70%;\n  height: ", "px;\n  border-bottom: solid 1px blue;\n  z-index: 20;\n  transform: translate3d(0, 0, 0);\n  @media screen and (min-width: 960px) {\n    width: 100% !important;\n    margin-left: 0px !important;\n  }\n  @media screen and (min-width: 1100px) {\n    width: 70% !important;\n  }\n  @media screen and (min-width: 1300px) {\n    width: 74% !important;\n  }\n  @media screen and (min-width: 1500px) {\n    width: 77% !important;\n  }\n  @media screen and (min-width: 1700px) {\n    width: 79% !important;\n  }\n  @media screen and (min-width: 2010px) {\n    width: 91% !important;\n  }\n"])), function (_a) {
+var StyledNav = styled.nav(templateObject_2$f || (templateObject_2$f = __makeTemplateObject(["\n  z-index: 1 !important;\n  position: fixed;\n  top: ", ";\n  left: ", ";\n  transition: top 0.2s;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding-left: 8px;\n  padding-right: 16px;\n  width: ", ";\n  height: ", "px;\n  border-bottom: solid 1px blue;\n  z-index: 20;\n  transform: translate3d(0, 0, 0);\n  @media screen and (min-width: 970px) {\n    width: 66% !important;\n    left: 30% !important;\n  }\n  @media screen and (min-width: 1100px) {\n    width: 70% !important;\n    left: 26% !important;\n  }\n  @media screen and (min-width: 1300px) {\n    width: 72% !important;\n    left: 24% !important;\n  }\n  @media screen and (min-width: 1500px) {\n    width: 75% !important;\n    left: 21% !important;\n  }\n  @media screen and (min-width: 1700px) {\n    width: 76% !important;\n    left: 19% !important;\n  }\n  @media screen and (min-width: 2010px) {\n    width: 80% !important;\n    left: 16% !important;\n  }\n"], ["\n  z-index: 1 !important;\n  position: fixed;\n  top: ", ";\n  left: ", ";\n  transition: top 0.2s;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding-left: 8px;\n  padding-right: 16px;\n  width: ", ";\n  height: ", "px;\n  border-bottom: solid 1px blue;\n  z-index: 20;\n  transform: translate3d(0, 0, 0);\n  @media screen and (min-width: 970px) {\n    width: 66% !important;\n    left: 30% !important;\n  }\n  @media screen and (min-width: 1100px) {\n    width: 70% !important;\n    left: 26% !important;\n  }\n  @media screen and (min-width: 1300px) {\n    width: 72% !important;\n    left: 24% !important;\n  }\n  @media screen and (min-width: 1500px) {\n    width: 75% !important;\n    left: 21% !important;\n  }\n  @media screen and (min-width: 1700px) {\n    width: 76% !important;\n    left: 19% !important;\n  }\n  @media screen and (min-width: 2010px) {\n    width: 80% !important;\n    left: 16% !important;\n  }\n"])), function (_a) {
     var showMenu = _a.showMenu;
     return (showMenu ? 0 : "-" + MENU_HEIGHT + "px");
+}, function (_a) {
+    var isMobile = _a.isMobile;
+    return (isMobile ? '0' : '16%');
+}, function (_a) {
+    var isMobile = _a.isMobile;
+    return (isMobile ? '100%' : '78%');
 }, MENU_HEIGHT);
 var BodyWrapper = styled.div(templateObject_3$8 || (templateObject_3$8 = __makeTemplateObject(["\n  position: relative;\n  display: flex;\n"], ["\n  position: relative;\n  display: flex;\n"])));
 var Inner = styled.div(templateObject_4$4 || (templateObject_4$4 = __makeTemplateObject(["\n  flex-grow: 1;\n  margin-top: ", ";\n  transition: margin-top 0.2s;\n  transform: translate3d(0, 0, 0);\n  ", " {\n    margin-left: ", ";\n  }\n"], ["\n  flex-grow: 1;\n  margin-top: ", ";\n  transition: margin-top 0.2s;\n  transform: translate3d(0, 0, 0);\n  ", " {\n    margin-left: ", ";\n  }\n"])), function (_a) {
@@ -2820,8 +2831,8 @@ var Menu = function (_a) {
     // Find the home link if provided
     var homeLink = links.find(function (link) { return link.label === "Home"; });
     return (React.createElement(Wrapper$1, null,
-        React.createElement(StyledNav, { showMenu: showMenu },
-            React.createElement(Logo$2, { isPushed: isPushed, togglePush: function () { return setIsPushed(function (prevState) { return !prevState; }); }, isDark: isDark, href: (_b = homeLink === null || homeLink === void 0 ? void 0 : homeLink.href) !== null && _b !== void 0 ? _b : "/" }),
+        React.createElement(StyledNav, { showMenu: showMenu, isMobile: isMobile },
+            React.createElement(Logo$2, { isPushed: isPushed, togglePush: function () { setIsPushed(function (prevState) { return !prevState; }); }, isDark: isDark, isMobile: isMobile, href: (_b = homeLink === null || homeLink === void 0 ? void 0 : homeLink.href) !== null && _b !== void 0 ? _b : "/" }),
             React.createElement(Flex, null,
                 React.createElement(UserBlock, { account: account, login: login, logout: logout }),
                 React.createElement(GearBackground, null,
