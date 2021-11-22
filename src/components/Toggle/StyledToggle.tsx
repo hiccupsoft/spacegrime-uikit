@@ -1,3 +1,4 @@
+import { check } from "prettier";
 import styled from "styled-components";
 
 export const Handle = styled.div`
@@ -36,7 +37,8 @@ export const Input = styled.input`
 
 const StyledToggle = styled.div<{ checked: boolean }>`
   align-items: center;
-  background: ${ checked  => checked ? 'linear-gradient(272deg, #cfd0d2, #cfd0d2)' : 'linear-gradient(272deg, #80ffc4, #aeffb0)'};
+  background: ${({ checked }) => !checked ? '#cfd0d2' : undefined};
+  background-image: ${({checked})=> checked ? 'linear-gradient(272deg, #80ffc4, #aeffb0)': undefined};
   border-radius: 24px;
   box-shadow: ${({ theme }) => theme.shadows.inset};
   cursor: pointer;

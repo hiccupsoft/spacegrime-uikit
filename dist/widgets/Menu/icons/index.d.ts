@@ -29,3 +29,5 @@ export { default as Astronaut } from "./Astronaut";
 export { default as Planet } from "./Planet";
 export { default as Gear } from "./Gear";
 export { default as NavBg } from "./NavBg";
+export { default as RecentTransactionsToggleActive } from './RecentTransactionsToggleActive';
+export { default as SlippageToggleActive } from './SlippageToggleActive';

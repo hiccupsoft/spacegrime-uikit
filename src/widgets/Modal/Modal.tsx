@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React from "react";
 import styled from "styled-components";
 import Heading from "../../components/Heading/Heading";
@@ -5,7 +6,7 @@ import Flex from "../../components/Flex/Flex";
 import { ArrowBackIcon, CloseIcon } from "../../components/Svg";
 import { IconButton } from "../../components/Button";
 import { InjectedProps } from "./types";
-import { Planet } from "../Menu/icons";
+import { Planet, SlippageToggleActive, RecentTransactionsToggleActive } from "../Menu/icons";
 
 interface Props extends InjectedProps {
   title: string;
@@ -45,6 +46,34 @@ const Logo = styled.div`
   width: 60%;
   top: 0;
   text-align: end;
+  @media screen and (min-width: 570px) {
+    width: 85% !important;
+    right: 43% !important;
+  }
+  @media screen and (min-width: 770px) {
+    width: 80% !important;
+    right: 23% !important;
+  }
+  @media screen and (min-width: 970px) {
+    width: 74% !important;
+    right: 10% !important;
+  }
+  @media screen and (min-width: 1100px) {
+    width: 70% !important;
+    right: 0% !important;
+  }
+  @media screen and (min-width: 1500px) {
+    width: 65% !important;
+    right: 0% !important;
+  }
+  @media screen and (min-width: 1700px) {
+    width: 56% !important;
+    right: 0% !important;
+  }
+  @media screen and (min-width: 2010px) {
+    width: 50% !important;
+    right: 0% !important;
+  }
 `;
 
 const ModalContent = styled.div`
@@ -66,6 +95,8 @@ const Modal: React.FC<Props> = ({
   <StyledModal>
     <Logo>
       <Planet />
+      <SlippageToggleActive />
+      <RecentTransactionsToggleActive />
     </Logo>
     <ModalHeader>
       {/* <ModalTitle>

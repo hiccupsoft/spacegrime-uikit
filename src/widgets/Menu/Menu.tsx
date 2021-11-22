@@ -198,7 +198,7 @@ const Menu: React.FC<NavProps> = ({
         <Inner isPushed={isPushed} showMenu={showMenu} >
           {children}
         </Inner>
-        <MobileOnlyOverlay show={isPushed} onClick={() => setIsPushed(false)} role="presentation"  />
+        <MobileOnlyOverlay isDark={isDark} show={isPushed} onClick={() => setIsPushed(false)} role="presentation"  />
       </BodyWrapper>
     </Wrapper>
   );
