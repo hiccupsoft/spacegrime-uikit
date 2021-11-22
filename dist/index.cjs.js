@@ -2445,7 +2445,6 @@ var StyledPanel = styled__default['default'].div(templateObject_1$D || (template
         return "linear-gradient(to right, rgba(181,189,255,.8),rgba(181,189,255,.8),rgba(181,189,255,.8),rgba(181,189,255,.8),rgba(181,189,255,.8),rgba(181,189,255,0.8),rgba(181,189,255,.6),rgba(181,189,255,0.2));";
     return undefined;
 }, function (props) {
-    console.log(props.isDark);
     if (props.isDark)
         return "#050545;";
     return undefined;
