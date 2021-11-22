@@ -24,14 +24,14 @@ const Container = styled.div`
   flex-shrink: 0;
 `;
 
-const AccordionContent = styled.div<{ isOpen: boolean; isPushed: boolean; maxHeight: number, isDark: boolean }>`
+const AccordionContent = styled.div<{ isOpen: boolean; isPushed: boolean; maxHeight: number, isDark?: boolean }>`
   max-height: ${({ isOpen, maxHeight }) => (isOpen ? `${maxHeight}px` : 0)};
   transition: max-height 0.3s ease-out;
   overflow: hidden;
   border-color: ${({ isOpen, isPushed, isDark }) => {
-    if(!isDark)
-      return isOpen && isPushed ? "rgba(133, 133, 133, 0.1)" : "transparent";
-    return isOpen && isPushed ? "#3a3996" : "transparent";
+    if(!isDark) return isOpen && isPushed ? "rgba(133, 133, 133, 0.1)" : "transparent";
+    // eslint-disable-next-line no-else-return
+    else        return isOpen && isPushed ? "#3a3996" : "transparent";
   }};
   border-style: solid;
   border-width: 1px;
@@ -85,7 +85,7 @@ const Accordion: React.FC<Props> = ({
         isOpen={open === id}
         isPushed={isPushed}
         maxHeight={React.Children.count(children) * MENU_ENTRY_HEIGHT}
-        isDark={isDark || true}
+        isDark={isDark}
       >
         {children}
       </AccordionContent>

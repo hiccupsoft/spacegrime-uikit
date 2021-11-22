@@ -28,10 +28,11 @@ const StyledPanel = styled.div<{ isPushed: boolean, showMenu: boolean, isDark: b
     return undefined;
   }};
   background-color:   ${(props)=>{
-    if(props.isDark) return `background-color: #050545;`
+    console.log(props.isDark)
+    if(props.isDark) return `#050545;`
     return undefined;
   }};
-  width: ${({ isPushed }) => (isPushed ? `${SIDEBAR_WIDTH_FULL}px` : 0)};
+  width: ${({ isPushed }) => (isPushed ? `${SIDEBAR_WIDTH_FULL}px` : '50px')};
   height: 100vh;
   transition: padding-top 0.2s, width 0.2s;
   /* border-right: ${({ isPushed }) => (isPushed ? "2px solid rgba(133, 133, 133, 0.1)" : 0)}; */

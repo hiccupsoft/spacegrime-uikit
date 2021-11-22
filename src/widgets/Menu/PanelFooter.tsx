@@ -1,10 +1,11 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React from "react";
 import styled from "styled-components";
 import { PancakeRoundIcon, CogIcon, SvgProps } from "../../components/Svg";
 import Text from "../../components/Text/Text";
 import Flex from "../../components/Flex/Flex";
 import Dropdown from "../../components/Dropdown/Dropdown";
-import Link from "../../components/Link/Link";
+// import Link from "../../components/Link/Link";
 import Skeleton from "../../components/Skeleton/Skeleton";
 import Button from "../../components/Button/Button";
 import IconButton from "../../components/Button/IconButton";
@@ -21,7 +22,7 @@ const { MoonIcon, SunIcon, LanguageIcon } = Icons;
 const Container = styled.div`
   flex: none;
   padding: 8px 4px;
-  background-color: ${({ theme }) => theme.nav.background};
+  /* background-color: ${({ theme }) => theme.nav.background}; */
   border-top: solid 2px rgba(133, 133, 133, 0.1);
 `;
 
@@ -86,7 +87,7 @@ const PanelFooter: React.FC<Props> = ({
         ) : (
           <Skeleton width={80} height={24} />
         )}
-        <Flex>
+        {/* <Flex>
           {socials.map((social, index) => {
             const Icon = Icons[social.icon];
             const iconProps = { width: "24px", color: "textSubtle", style: { cursor: "pointer" } };
@@ -108,7 +109,7 @@ const PanelFooter: React.FC<Props> = ({
               </Link>
             );
           })}
-        </Flex>
+        </Flex> */}
       </SocialEntry>
       <SettingsEntry>
         <Button variant="text" onClick={() => toggleTheme(!isDark)}>

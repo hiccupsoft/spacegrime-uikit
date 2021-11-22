@@ -2279,76 +2279,6 @@ var links = [
         ],
     },
 ];
-var socials = [
-    {
-        label: "Telegram",
-        icon: "TelegramIcon",
-        items: [
-            {
-                label: "English",
-                href: "https://t.me/goosedefi",
-            },
-            // {
-            //   label: "Bahasa Indonesia",
-            //   href: "https://t.me/PancakeSwapIndonesia",
-            // },
-            {
-                label: "中文",
-                href: "https://t.me/goosefinancechinese",
-            },
-            // {
-            //   label: "Tiếng Việt",
-            //   href: "https://t.me/PancakeSwapVN",
-            // },
-            {
-                label: "Italiano",
-                href: "https://t.me/goosefinanceitalian",
-            },
-            {
-                label: "русский",
-                href: "https://t.me/goosefinancerussian",
-            },
-            {
-                label: "Türkiye",
-                href: "https://t.me/GooseFinanceTurkey",
-            },
-            // {
-            //   label: "Português",
-            //   href: "https://t.me/PancakeSwapPortuguese",
-            // },
-            {
-                label: "Español",
-                href: "https://t.me/goosefinancespanish",
-            },
-            {
-                label: "日本語",
-                href: "https://t.me/goosefinancejapanese",
-            },
-            {
-                label: "Français",
-                href: "https://t.me/goosefinancefrench",
-            },
-            {
-                label: "Announcements",
-                href: "https://t.me/goosefinanceann",
-            },
-            {
-                label: "Price Bot",
-                href: "https://t.me/BinanceRocketEGG",
-            },
-        ],
-    },
-    {
-        label: "Twitter",
-        icon: "TwitterIcon",
-        href: "https://twitter.com/goosedefi",
-    },
-    {
-        label: "Reddit",
-        icon: "RedditIcon",
-        href: "https://www.reddit.com/r/GooseFinanceofficial",
-    },
-];
 var MENU_HEIGHT = 64;
 var MENU_ENTRY_HEIGHT = 32;
 var SIDEBAR_WIDTH_FULL = 240;
@@ -2397,7 +2327,9 @@ var AccordionContent = styled__default['default'].div(templateObject_2$b || (tem
     var isOpen = _a.isOpen, isPushed = _a.isPushed, isDark = _a.isDark;
     if (!isDark)
         return isOpen && isPushed ? "rgba(133, 133, 133, 0.1)" : "transparent";
-    return isOpen && isPushed ? "#3a3996" : "transparent";
+    // eslint-disable-next-line no-else-return
+    else
+        return isOpen && isPushed ? "#3a3996" : "transparent";
 });
 var Accordion = function (_a) {
     // const [isOpen, setIsOpen] = useState(initialOpenState);
@@ -2425,7 +2357,7 @@ var Accordion = function (_a) {
             icon,
             React__default['default'].createElement(LinkLabel, { isPushed: isPushed }, label),
             open === id ? React__default['default'].createElement(Icon$8, null) : React__default['default'].createElement(Icon$7, null)),
-        React__default['default'].createElement(AccordionContent, { style: { boxShadow: getBoxShadow() }, isOpen: open === id, isPushed: isPushed, maxHeight: React__default['default'].Children.count(children) * MENU_ENTRY_HEIGHT, isDark: isDark || true }, children)));
+        React__default['default'].createElement(AccordionContent, { style: { boxShadow: getBoxShadow() }, isOpen: open === id, isPushed: isPushed, maxHeight: React__default['default'].Children.count(children) * MENU_ENTRY_HEIGHT, isDark: isDark }, children)));
 };
 var templateObject_1$A, templateObject_2$b;
 
@@ -2441,7 +2373,7 @@ var MenuLink = function (_a) {
 var Icons = IconModule;
 var Container$3 = styled__default['default'].div(templateObject_1$B || (templateObject_1$B = __makeTemplateObject(["\n  display: flex;\n  flex-direction: column;\n  /* overflow-y: auto;\n  overflow-x: hidden; */\n  height: 100%;\n  margin-top: ", ";\n  width: 100%;\n"], ["\n  display: flex;\n  flex-direction: column;\n  /* overflow-y: auto;\n  overflow-x: hidden; */\n  height: 100%;\n  margin-top: ", ";\n  width: 100%;\n"])), function (props) { return !props.isPushed ? '40%' : '-100%'; });
 var PanelBody = function (_a) {
-    var isPushed = _a.isPushed, pushNav = _a.pushNav, isMobile = _a.isMobile, links = _a.links;
+    var isPushed = _a.isPushed, pushNav = _a.pushNav, isMobile = _a.isMobile, links = _a.links, isDark = _a.isDark;
     var location = reactRouterDom.useLocation();
     var _b = React.useState(-1), openItem = _b[0], setOpenItem = _b[1];
     // Close the menu when a user clicks a link on mobile
@@ -2459,7 +2391,7 @@ var PanelBody = function (_a) {
             // eslint-disable-next-line react/no-array-index-key
             , { 
                 // eslint-disable-next-line react/no-array-index-key
-                key: index, isPushed: isPushed, pushNav: pushNav, icon: iconElement, label: entry.label, initialOpenState: entry.initialOpenState, className: calloutClass, id: index, open: openItem, setOpenItem: setOpenItemNumber, isMobile: isMobile }, isPushed &&
+                key: index, isPushed: isPushed, pushNav: pushNav, icon: iconElement, label: entry.label, initialOpenState: entry.initialOpenState, className: calloutClass, id: index, open: openItem, setOpenItem: setOpenItemNumber, isMobile: isMobile, isDark: isDark }, isPushed &&
                 entry.items.map(function (item) { return (React__default['default'].createElement(MenuEntry, { key: item.href, secondary: true, isActive: item.href === location.pathname },
                     React__default['default'].createElement(MenuLink, { href: item.href }, item.label))); })));
         }
@@ -2475,7 +2407,7 @@ var templateObject_1$B;
 
 var Icons$1 = IconModule;
 var MoonIcon = Icons$1.MoonIcon, SunIcon = Icons$1.SunIcon, LanguageIcon = Icons$1.LanguageIcon;
-var Container$4 = styled__default['default'].div(templateObject_1$C || (templateObject_1$C = __makeTemplateObject(["\n  flex: none;\n  padding: 8px 4px;\n  background-color: ", ";\n  border-top: solid 2px rgba(133, 133, 133, 0.1);\n"], ["\n  flex: none;\n  padding: 8px 4px;\n  background-color: ", ";\n  border-top: solid 2px rgba(133, 133, 133, 0.1);\n"])), function (_a) {
+var Container$4 = styled__default['default'].div(templateObject_1$C || (templateObject_1$C = __makeTemplateObject(["\n  flex: none;\n  padding: 8px 4px;\n  /* background-color: ", "; */\n  border-top: solid 2px rgba(133, 133, 133, 0.1);\n"], ["\n  flex: none;\n  padding: 8px 4px;\n  /* background-color: ", "; */\n  border-top: solid 2px rgba(133, 133, 133, 0.1);\n"])), function (_a) {
     var theme = _a.theme;
     return theme.nav.background;
 });
@@ -2490,20 +2422,9 @@ var PanelFooter = function (_a) {
                 React__default['default'].createElement(Icon$l, null))));
     }
     return (React__default['default'].createElement(Container$4, null,
-        React__default['default'].createElement(SocialEntry, null,
-            cakePriceUsd ? (React__default['default'].createElement(PriceLink, { href: priceLink, target: "_blank" },
-                React__default['default'].createElement(Icon$v, { width: "24px", mr: "8px" }),
-                React__default['default'].createElement(Text, { color: "textSubtle", bold: true }, "$" + cakePriceUsd.toFixed(3)))) : (React__default['default'].createElement(Skeleton, { width: 80, height: 24 })),
-            React__default['default'].createElement(Flex, null, socials.map(function (social, index) {
-                var Icon = Icons$1[social.icon];
-                var iconProps = { width: "24px", color: "textSubtle", style: { cursor: "pointer" } };
-                var mr = index < socials.length - 1 ? "8px" : 0;
-                if (social.items) {
-                    return (React__default['default'].createElement(Dropdown, { key: social.label, position: "top", target: React__default['default'].createElement(Icon, __assign({}, iconProps, { mr: mr })) }, social.items.map(function (item) { return (React__default['default'].createElement(Link, { external: true, key: item.label, href: item.href, "aria-label": item.label, color: "textSubtle" }, item.label)); })));
-                }
-                return (React__default['default'].createElement(Link, { external: true, key: social.label, href: social.href, "aria-label": social.label, mr: mr },
-                    React__default['default'].createElement(Icon, __assign({}, iconProps))));
-            }))),
+        React__default['default'].createElement(SocialEntry, null, cakePriceUsd ? (React__default['default'].createElement(PriceLink, { href: priceLink, target: "_blank" },
+            React__default['default'].createElement(Icon$v, { width: "24px", mr: "8px" }),
+            React__default['default'].createElement(Text, { color: "textSubtle", bold: true }, "$" + cakePriceUsd.toFixed(3)))) : (React__default['default'].createElement(Skeleton, { width: 80, height: 24 }))),
         React__default['default'].createElement(SettingsEntry, null,
             React__default['default'].createElement(Button, { variant: "text", onClick: function () { return toggleTheme(!isDark); } },
                 React__default['default'].createElement(Flex, { alignItems: "center" },
@@ -2524,12 +2445,13 @@ var StyledPanel = styled__default['default'].div(templateObject_1$D || (template
         return "linear-gradient(to right, rgba(181,189,255,.8),rgba(181,189,255,.8),rgba(181,189,255,.8),rgba(181,189,255,.8),rgba(181,189,255,.8),rgba(181,189,255,0.8),rgba(181,189,255,.6),rgba(181,189,255,0.2));";
     return undefined;
 }, function (props) {
+    console.log(props.isDark);
     if (props.isDark)
-        return "background-color: #050545;";
+        return "#050545;";
     return undefined;
 }, function (_a) {
     var isPushed = _a.isPushed;
-    return (isPushed ? SIDEBAR_WIDTH_FULL + "px" : 0);
+    return (isPushed ? SIDEBAR_WIDTH_FULL + "px" : '50px');
 }, function (_a) {
     var isPushed = _a.isPushed;
     return (isPushed ? "2px solid rgba(133, 133, 133, 0.1)" : 0);
@@ -2739,14 +2661,14 @@ var useWalletModal = function (login, logout, account) {
 };
 
 var UserBlock = function (_a) {
-    var account = _a.account, login = _a.login, logout = _a.logout;
+    var account = _a.account, login = _a.login, logout = _a.logout, isMobile = _a.isMobile;
     var _b = useWalletModal(login, logout, account), onPresentConnectModal = _b.onPresentConnectModal, onPresentAccountModal = _b.onPresentAccountModal;
     var accountEllipsis = account ? account.substring(0, 4) + "..." + account.substring(account.length - 4) : null;
     return (React__default['default'].createElement("div", null, account ? (React__default['default'].createElement(Button, { size: "md", variant: "tertiary", onClick: function () {
             onPresentAccountModal();
         }, style: { padding: '20px' } }, accountEllipsis)) : (React__default['default'].createElement(Button, { size: "md", onClick: function () {
             onPresentConnectModal();
-        }, style: { padding: '20px' } }, "Connect To a Wallet"))));
+        }, style: { padding: '20px' } }, !isMobile ? "Connect To a Wallet" : "Connect"))));
 };
 
 var Icon$1g = function (props) {
@@ -2790,16 +2712,19 @@ var templateObject_1$G, templateObject_2$e;
 // eslint-disable-next-line global-require
 // const TopNavBG = require("./IconImage/BgHeader.svg") as string;
 var Wrapper$1 = styled__default['default'].div(templateObject_1$H || (templateObject_1$H = __makeTemplateObject(["\n  position: relative;\n  width: 100%;\n"], ["\n  position: relative;\n  width: 100%;\n"])));
-var StyledNav = styled__default['default'].nav(templateObject_2$f || (templateObject_2$f = __makeTemplateObject(["\n  z-index: 1 !important;\n  position: fixed;\n  top: ", ";\n  left: ", ";\n  transition: top 0.2s;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding-left: 8px;\n  padding-right: 16px;\n  width: ", ";\n  height: ", "px;\n  border-bottom: solid 1px blue;\n  z-index: 20;\n  transform: translate3d(0, 0, 0);\n  @media screen and (min-width: 970px) {\n    width: 66% !important;\n    left: 30% !important;\n  }\n  @media screen and (min-width: 1100px) {\n    width: 70% !important;\n    left: 26% !important;\n  }\n  @media screen and (min-width: 1300px) {\n    width: 72% !important;\n    left: 24% !important;\n  }\n  @media screen and (min-width: 1500px) {\n    width: 75% !important;\n    left: 21% !important;\n  }\n  @media screen and (min-width: 1700px) {\n    width: 76% !important;\n    left: 19% !important;\n  }\n  @media screen and (min-width: 2010px) {\n    width: 80% !important;\n    left: 16% !important;\n  }\n"], ["\n  z-index: 1 !important;\n  position: fixed;\n  top: ", ";\n  left: ", ";\n  transition: top 0.2s;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding-left: 8px;\n  padding-right: 16px;\n  width: ", ";\n  height: ", "px;\n  border-bottom: solid 1px blue;\n  z-index: 20;\n  transform: translate3d(0, 0, 0);\n  @media screen and (min-width: 970px) {\n    width: 66% !important;\n    left: 30% !important;\n  }\n  @media screen and (min-width: 1100px) {\n    width: 70% !important;\n    left: 26% !important;\n  }\n  @media screen and (min-width: 1300px) {\n    width: 72% !important;\n    left: 24% !important;\n  }\n  @media screen and (min-width: 1500px) {\n    width: 75% !important;\n    left: 21% !important;\n  }\n  @media screen and (min-width: 1700px) {\n    width: 76% !important;\n    left: 19% !important;\n  }\n  @media screen and (min-width: 2010px) {\n    width: 80% !important;\n    left: 16% !important;\n  }\n"])), function (_a) {
+var StyledNav = styled__default['default'].nav(templateObject_2$f || (templateObject_2$f = __makeTemplateObject(["\n  z-index: 1 !important;\n  position: fixed;\n  top: ", ";\n  left: ", ";\n  transition: top 0.2s;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding-left: 8px;\n  padding-right: 16px;\n  width: ", ";\n  height: ", "px;\n  border-bottom:  ", "; \n  z-index: 20;\n  transform: translate3d(0, 0, 0);\n  @media screen and (min-width: 970px) {\n    width: 66% !important;\n    left: 30% !important;\n  }\n  @media screen and (min-width: 1100px) {\n    width: 70% !important;\n    left: 26% !important;\n  }\n  @media screen and (min-width: 1300px) {\n    width: 72% !important;\n    left: 24% !important;\n  }\n  @media screen and (min-width: 1500px) {\n    width: 75% !important;\n    left: 21% !important;\n  }\n  @media screen and (min-width: 1700px) {\n    width: 76% !important;\n    left: 19% !important;\n  }\n  @media screen and (min-width: 2010px) {\n    width: 80% !important;\n    left: 16% !important;\n  }\n"], ["\n  z-index: 1 !important;\n  position: fixed;\n  top: ", ";\n  left: ", ";\n  transition: top 0.2s;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding-left: 8px;\n  padding-right: 16px;\n  width: ", ";\n  height: ", "px;\n  border-bottom:  ", "; \n  z-index: 20;\n  transform: translate3d(0, 0, 0);\n  @media screen and (min-width: 970px) {\n    width: 66% !important;\n    left: 30% !important;\n  }\n  @media screen and (min-width: 1100px) {\n    width: 70% !important;\n    left: 26% !important;\n  }\n  @media screen and (min-width: 1300px) {\n    width: 72% !important;\n    left: 24% !important;\n  }\n  @media screen and (min-width: 1500px) {\n    width: 75% !important;\n    left: 21% !important;\n  }\n  @media screen and (min-width: 1700px) {\n    width: 76% !important;\n    left: 19% !important;\n  }\n  @media screen and (min-width: 2010px) {\n    width: 80% !important;\n    left: 16% !important;\n  }\n"])), function (_a) {
     var showMenu = _a.showMenu;
     return (showMenu ? 0 : "-" + MENU_HEIGHT + "px");
 }, function (_a) {
     var isMobile = _a.isMobile;
-    return (isMobile ? '0' : '16%');
+    return (isMobile ? '8%' : '16%');
 }, function (_a) {
     var isMobile = _a.isMobile;
     return (isMobile ? '100%' : '78%');
-}, MENU_HEIGHT);
+}, MENU_HEIGHT, function (_a) {
+    var isMobile = _a.isMobile;
+    return (isMobile ? 'solid 1px blue;' : undefined);
+});
 var BodyWrapper = styled__default['default'].div(templateObject_3$8 || (templateObject_3$8 = __makeTemplateObject(["\n  position: relative;\n  display: flex;\n"], ["\n  position: relative;\n  display: flex;\n"])));
 var Inner = styled__default['default'].div(templateObject_4$4 || (templateObject_4$4 = __makeTemplateObject(["\n  flex-grow: 1;\n  margin-top: ", ";\n  transition: margin-top 0.2s;\n  transform: translate3d(0, 0, 0);\n  ", " {\n    margin-left: ", ";\n  }\n"], ["\n  flex-grow: 1;\n  margin-top: ", ";\n  transition: margin-top 0.2s;\n  transform: translate3d(0, 0, 0);\n  ", " {\n    margin-left: ", ";\n  }\n"])), function (_a) {
     var showMenu = _a.showMenu;
@@ -2860,17 +2785,20 @@ var Menu = function (_a) {
     }, []);
     // Find the home link if provided
     var homeLink = links.find(function (link) { return link.label === "Home"; });
+    var pushSideBar = function () {
+        if (isMobile)
+            setIsPushed(function (prevState) { return !prevState; });
+    };
     return (React__default['default'].createElement(Wrapper$1, null,
         React__default['default'].createElement(StyledNav, { showMenu: showMenu, isMobile: isMobile },
-            React__default['default'].createElement(Logo$2, { isPushed: isPushed, togglePush: function () { setIsPushed(function (prevState) { return !prevState; }); }, isDark: isDark, isMobile: isMobile, href: (_b = homeLink === null || homeLink === void 0 ? void 0 : homeLink.href) !== null && _b !== void 0 ? _b : "/" }),
+            React__default['default'].createElement(Logo$2, { isPushed: isPushed, togglePush: function () { pushSideBar(); }, isDark: isDark, isMobile: isMobile, href: (_b = homeLink === null || homeLink === void 0 ? void 0 : homeLink.href) !== null && _b !== void 0 ? _b : "/" }),
             React__default['default'].createElement(Flex, null,
-                React__default['default'].createElement(UserBlock, { account: account, login: login, logout: logout }),
+                React__default['default'].createElement(UserBlock, { account: account, login: login, logout: logout, isMobile: isMobile }),
                 React__default['default'].createElement(GearBackground, null,
                     React__default['default'].createElement(Icon$18, null)),
                 profile && React__default['default'].createElement(Avatar, { profile: profile }))),
         React__default['default'].createElement(BodyWrapper, null,
-            React__default['default'].createElement(Panel, { isPushed: isPushed, isMobile: isMobile, showMenu: showMenu, isDark: isDark, toggleTheme: toggleTheme, langs: langs, setLang: setLang, currentLang: currentLang, cakePriceUsd: cakePriceUsd, pushNav: setIsPushed, links: links, priceLink: priceLink, onClick: function () { if (isMobile)
-                    setIsPushed(function (prevState) { return !prevState; }); } }),
+            React__default['default'].createElement(Panel, { isPushed: isPushed, isMobile: isMobile, showMenu: showMenu, isDark: isDark, toggleTheme: toggleTheme, langs: langs, setLang: setLang, currentLang: currentLang, cakePriceUsd: cakePriceUsd, pushNav: setIsPushed, links: links, priceLink: priceLink, onClick: function () { pushSideBar(); } }),
             React__default['default'].createElement(Inner, { isPushed: isPushed, showMenu: showMenu }, children),
             React__default['default'].createElement(MobileOnlyOverlay, { show: isPushed, onClick: function () { return setIsPushed(false); }, role: "presentation" }))));
 };

@@ -24,7 +24,7 @@ const Container = styled.div<{isPushed: boolean}>`
   width: 100%;
 `;
 
-const PanelBody: React.FC<Props> = ({ isPushed, pushNav, isMobile, links }) => {
+const PanelBody: React.FC<Props> = ({ isPushed, pushNav, isMobile, links, isDark }) => {
   const location = useLocation();
   const [openItem, setOpenItem] = useState(-1);
   
@@ -62,6 +62,7 @@ const PanelBody: React.FC<Props> = ({ isPushed, pushNav, isMobile, links }) => {
               open={openItem}
               setOpenItem={setOpenItemNumber}
               isMobile={isMobile}
+              isDark={isDark}
             >
               {isPushed &&
                 entry.items.map((item) => (
