@@ -11,6 +11,7 @@ import { Astronaut } from "./icons";
 interface Props extends PanelProps, PushedProps {
   showMenu: boolean;
   isMobile: boolean;
+  onClick?: ()=>void;
 }
 
 const StyledPanel = styled.div<{ isPushed: boolean, showMenu: boolean, isDark: boolean}>`
@@ -24,6 +25,10 @@ const StyledPanel = styled.div<{ isPushed: boolean, showMenu: boolean, isDark: b
 
   background-image:   ${(props)=>{
     if(!props.isDark) return `linear-gradient(to right, rgba(181,189,255,.8),rgba(181,189,255,.8),rgba(181,189,255,.8),rgba(181,189,255,.8),rgba(181,189,255,.8),rgba(181,189,255,0.8),rgba(181,189,255,.6),rgba(181,189,255,0.2));`
+    return undefined;
+  }};
+  background-color:   ${(props)=>{
+    if(props.isDark) return `background-color: #050545;`
     return undefined;
   }};
   width: ${({ isPushed }) => (isPushed ? `${SIDEBAR_WIDTH_FULL}px` : 0)};
@@ -40,11 +45,11 @@ const StyledPanel = styled.div<{ isPushed: boolean, showMenu: boolean, isDark: b
 `;
 
 const Panel: React.FC<Props> = (props) => {
-  const { isPushed, showMenu, isDark } = props;
+  const { isPushed, showMenu, isDark, onClick } = props;
   return (
     <div>
       <StyledPanel isPushed={isPushed} showMenu={showMenu} isDark={isDark} >
-        <Astronaut width={`${SIDEBAR_WIDTH_FULL+160}px`} isVisible={isPushed}/>
+        <Astronaut width={`${SIDEBAR_WIDTH_FULL+160}px`} isVisible={isPushed} onClick={onClick}/>
         <PanelBody {...props} />
         <PanelFooter {...props} />
       </StyledPanel>

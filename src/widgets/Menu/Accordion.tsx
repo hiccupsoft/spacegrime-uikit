@@ -14,6 +14,7 @@ interface Props extends PushedProps {
   open: number;
   setOpenItem: (id:number)=>void;
   isMobile?: boolean;
+  isDark?: boolean;
 }
 
 const Container = styled.div`
@@ -23,14 +24,19 @@ const Container = styled.div`
   flex-shrink: 0;
 `;
 
-const AccordionContent = styled.div<{ isOpen: boolean; isPushed: boolean; maxHeight: number }>`
+const AccordionContent = styled.div<{ isOpen: boolean; isPushed: boolean; maxHeight: number, isDark: boolean }>`
   max-height: ${({ isOpen, maxHeight }) => (isOpen ? `${maxHeight}px` : 0)};
   transition: max-height 0.3s ease-out;
   overflow: hidden;
-  border-color: ${({ isOpen, isPushed }) => (isOpen && isPushed ? "rgba(133, 133, 133, 0.1)" : "transparent")};
+  border-color: ${({ isOpen, isPushed, isDark }) => {
+    if(!isDark)
+      return isOpen && isPushed ? "rgba(133, 133, 133, 0.1)" : "transparent";
+    return isOpen && isPushed ? "#3a3996" : "transparent";
+  }};
   border-style: solid;
   border-width: 1px;
   padding-left: 30px;
+  border-radius: 6px;
 `;
 
 const Accordion: React.FC<Props> = ({
@@ -44,6 +50,7 @@ const Accordion: React.FC<Props> = ({
   setOpenItem,
   open,
   id,
+  isDark
 }) => {
   // const [isOpen, setIsOpen] = useState(initialOpenState);
 
@@ -60,6 +67,12 @@ const Accordion: React.FC<Props> = ({
       setOpenItem(id);
   };
 
+  const getBoxShadow = () => {
+    if(!isDark)
+      return `${open === id ? '10px 12px 30px -6px rgba(15, 15, 110, 0.5)' : ''}`;
+    return `${open === id ? 'rgba(29,29,112,.97) 2px 0px 17px 10px' : ''}`;
+  }
+
   return (
     <Container>
       <MenuEntry onClick={handleClick} className={className}>
@@ -68,10 +81,11 @@ const Accordion: React.FC<Props> = ({
         {open === id ? <ArrowDropUpIcon /> : <ArrowDropDownIcon />}
       </MenuEntry>
       <AccordionContent
-        style={{ boxShadow:  `${open === id ? '10px 12px 30px -6px rgba(15, 15, 110, 50%)' : ''}`  }}
+        style={{ boxShadow:  getBoxShadow() }}
         isOpen={open === id}
         isPushed={isPushed}
         maxHeight={React.Children.count(children) * MENU_ENTRY_HEIGHT}
+        isDark={isDark || true}
       >
         {children}
       </AccordionContent>

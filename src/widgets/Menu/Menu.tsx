@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-duplicate-props */
 /* eslint-disable import/order */
 /* eslint-disable @typescript-eslint/no-var-requires */
 import React, { useState, useEffect, useRef } from "react";
@@ -189,11 +190,12 @@ const Menu: React.FC<NavProps> = ({
           pushNav={setIsPushed}
           links={links}
           priceLink={priceLink}
+          onClick={()=>{if(isMobile)setIsPushed((prevState: boolean) => !prevState)}}
         />
-        <Inner isPushed={isPushed} showMenu={showMenu}>
+        <Inner isPushed={isPushed} showMenu={showMenu} >
           {children}
         </Inner>
-        <MobileOnlyOverlay show={isPushed} onClick={() => setIsPushed(false)} role="presentation" />
+        <MobileOnlyOverlay show={isPushed} onClick={() => setIsPushed(false)} role="presentation"  />
       </BodyWrapper>
     </Wrapper>
   );

@@ -56,7 +56,10 @@ const Logo: React.FC<Props> = ({ isPushed, togglePush, isDark, href, isMobile })
         ) : (
           <HamburgerIcon width="24px" color="textSubtle" />
         )}
-        {isDark ? <LogoDark /> : <LogoLight />}
+        {isDark ? 
+                  <LogoDark width={isMobile? '120':'224'} height={isMobile?'16':'24' } /> : 
+                  <LogoLight width={isMobile? '120':'224'} height={isMobile?'16':'24'} />
+        }
       </MenuButton>
       {/* {isAbsoluteUrl ? (
         <StyledLink as="a" href={href} aria-label="Pancake home page">

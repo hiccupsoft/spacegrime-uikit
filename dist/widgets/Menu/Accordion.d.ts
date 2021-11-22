@@ -9,6 +9,7 @@ interface Props extends PushedProps {
     open: number;
     setOpenItem: (id: number) => void;
     isMobile?: boolean;
+    isDark?: boolean;
 }
 declare const Accordion: React.FC<Props>;
 export default Accordion;

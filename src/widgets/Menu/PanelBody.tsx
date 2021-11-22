@@ -27,12 +27,12 @@ const Container = styled.div<{isPushed: boolean}>`
 const PanelBody: React.FC<Props> = ({ isPushed, pushNav, isMobile, links }) => {
   const location = useLocation();
   const [openItem, setOpenItem] = useState(-1);
+  
+  // Close the menu when a user clicks a link on mobile
+  const handleClick = isMobile ? () => pushNav(false) : undefined;
   const setOpenItemNumber = (openId: number) => {
     setOpenItem(openId)
   }
-
-  // Close the menu when a user clicks a link on mobile
-  const handleClick = isMobile ? () => pushNav(false) : undefined;
 
   return (
     <Container isPushed={isPushed} >
