@@ -28,7 +28,6 @@ const StyledPanel = styled.div<{ isPushed: boolean, showMenu: boolean, isDark: b
     return undefined;
   }};
   background-color:   ${(props)=>{
-    console.log(props.isDark)
     if(props.isDark) return `#050545;`
     return undefined;
   }};
