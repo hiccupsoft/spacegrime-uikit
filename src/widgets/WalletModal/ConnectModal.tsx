@@ -1,6 +1,8 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React from "react";
 import styled from "styled-components";
 import { Link } from "../../components/Link";
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { HelpIcon } from "../../components/Svg";
 import { Modal } from "../Modal";
 import WalletCard from "./WalletCard";

@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-expressions */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React from "react";
 import styled from "styled-components";
@@ -13,6 +14,7 @@ interface Props extends InjectedProps {
   hideCloseButton?: boolean;
   onBack?: () => void;
   bodyPadding?: string;
+  onClickIcon?: (id: string) => void;
 }
 
 const StyledModal = styled.div`
@@ -41,11 +43,20 @@ const ModalTitle = styled(Flex)`
 `;
 const Logo = styled.div`
   position: absolute;
+  /* float: right; */
   right: 0;
   z-index: -1;
   width: 60%;
   top: 0;
   text-align: end;
+  @media screen and (min-width: 320px) {
+    width: 95% !important;
+    right: 75% !important;
+  }
+  @media screen and (min-width: 450px) {
+    width: 95% !important;
+    right: 55% !important;
+  }
   @media screen and (min-width: 570px) {
     width: 85% !important;
     right: 43% !important;
@@ -59,20 +70,20 @@ const Logo = styled.div`
     right: 10% !important;
   }
   @media screen and (min-width: 1100px) {
-    width: 70% !important;
-    right: 0% !important;
+    width: 75% !important;
+    right: -3% !important;
   }
   @media screen and (min-width: 1500px) {
-    width: 65% !important;
-    right: 0% !important;
+    width: 75% !important;
+    right: -8% !important;
   }
   @media screen and (min-width: 1700px) {
-    width: 56% !important;
-    right: 0% !important;
+    width: 55% !important;
+    right: -7% !important;
   }
   @media screen and (min-width: 2010px) {
-    width: 50% !important;
-    right: 0% !important;
+    width: 60% !important;
+    right: -12% !important;
   }
 `;
 
@@ -91,12 +102,13 @@ const Modal: React.FC<Props> = ({
   children,
   hideCloseButton = false,
   bodyPadding = "24px",
+  onClickIcon
 }) => (
   <StyledModal>
     <Logo>
       <Planet />
-      <SlippageToggleActive />
-      <RecentTransactionsToggleActive />
+      <SlippageToggleActive style={{ left: 320, top: 120, position: 'absolute'}} onClick={()=>{onClickIcon&&onClickIcon("setting")}} />
+      <RecentTransactionsToggleActive style={{ left: 280, top: 650, position: 'absolute'}} onClick={()=>{onClickIcon&&onClickIcon("recent")}} />
     </Logo>
     <ModalHeader>
       {/* <ModalTitle>
