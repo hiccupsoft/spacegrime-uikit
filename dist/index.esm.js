@@ -2726,10 +2726,19 @@ var templateObject_1$H, templateObject_2$e;
 
 // eslint-disable-next-line global-require
 // const TopNavBG = require("./IconImage/BgHeader.svg") as string;
-var Wrapper$1 = styled.div(templateObject_1$I || (templateObject_1$I = __makeTemplateObject(["\n  position: relative;\n  width: 100%;\n"], ["\n  position: relative;\n  width: 100%;\n"])));
-var StyledNav = styled.nav(templateObject_2$f || (templateObject_2$f = __makeTemplateObject(["\n  z-index: 1 !important;\n  position: fixed;\n  top: ", ";\n  left: ", ";\n  transition: top 0.2s;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding-left: 8px;\n  padding-right: 16px;\n  width: ", ";\n  height: ", "px;\n  border-bottom:  ", "; \n  z-index: 20;\n  transform: translate3d(0, 0, 0);\n  @media screen and (min-width: 970px) {\n    width: 66% !important;\n    left: 30% !important;\n  }\n  @media screen and (min-width: 1100px) {\n    width: 70% !important;\n    left: 26% !important;\n  }\n  @media screen and (min-width: 1300px) {\n    width: 72% !important;\n    left: 24% !important;\n  }\n  @media screen and (min-width: 1500px) {\n    width: 75% !important;\n    left: 21% !important;\n  }\n  @media screen and (min-width: 1700px) {\n    width: 76% !important;\n    left: 19% !important;\n  }\n  @media screen and (min-width: 2010px) {\n    width: 80% !important;\n    left: 16% !important;\n  }\n"], ["\n  z-index: 1 !important;\n  position: fixed;\n  top: ", ";\n  left: ", ";\n  transition: top 0.2s;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding-left: 8px;\n  padding-right: 16px;\n  width: ", ";\n  height: ", "px;\n  border-bottom:  ", "; \n  z-index: 20;\n  transform: translate3d(0, 0, 0);\n  @media screen and (min-width: 970px) {\n    width: 66% !important;\n    left: 30% !important;\n  }\n  @media screen and (min-width: 1100px) {\n    width: 70% !important;\n    left: 26% !important;\n  }\n  @media screen and (min-width: 1300px) {\n    width: 72% !important;\n    left: 24% !important;\n  }\n  @media screen and (min-width: 1500px) {\n    width: 75% !important;\n    left: 21% !important;\n  }\n  @media screen and (min-width: 1700px) {\n    width: 76% !important;\n    left: 19% !important;\n  }\n  @media screen and (min-width: 2010px) {\n    width: 80% !important;\n    left: 16% !important;\n  }\n"])), function (_a) {
+var Wrapper$1 = styled.div(templateObject_1$I || (templateObject_1$I = __makeTemplateObject(["\n  position: relative;\n  width: 100%;\n  padding-left: ", ";\n"], ["\n  position: relative;\n  width: 100%;\n  padding-left: ", ";\n"])), function (_a) {
+    var isMobile = _a.isMobile;
+    return (isMobile ? SIDEBAR_WIDTH_REDUCED + "px" : '0');
+});
+var StyledNav = styled.nav(templateObject_2$f || (templateObject_2$f = __makeTemplateObject(["\n  z-index: 1 !important;\n  width: 100% !important;\n  ", " {\n    margin-left: ", ";\n  }\n  top: ", ";\n  left: ", ";\n  transition: top 0.2s;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding-left: 8px;\n  padding-right: 16px;\n  width: ", ";\n  height: ", "px;\n  border-bottom:  ", "; \n  z-index: 20;\n  flex-grow: 1;\n  transform: translate3d(0, 0, 0);\n"], ["\n  z-index: 1 !important;\n  width: 100% !important;\n  ", " {\n    margin-left: ", ";\n  }\n  top: ", ";\n  left: ", ";\n  transition: top 0.2s;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding-left: 8px;\n  padding-right: 16px;\n  width: ", ";\n  height: ", "px;\n  border-bottom:  ", "; \n  z-index: 20;\n  flex-grow: 1;\n  transform: translate3d(0, 0, 0);\n"])), function (_a) {
+    var theme = _a.theme;
+    return theme.mediaQueries.nav;
+}, function (_a) {
+    var isPushed = _a.isPushed;
+    return (isPushed ? SIDEBAR_WIDTH_FULL : SIDEBAR_WIDTH_REDUCED) + "px";
+}, function (_a) {
     var showMenu = _a.showMenu;
-    return (showMenu ? 0 : "-" + MENU_HEIGHT + "px");
+    return (showMenu ? 0 : "-" + MENU_HEIGHT + "px !importants");
 }, function (_a) {
     var isMobile = _a.isMobile;
     return (isMobile ? '8%' : '16%');
@@ -2741,7 +2750,7 @@ var StyledNav = styled.nav(templateObject_2$f || (templateObject_2$f = __makeTem
     return (isMobile ? 'solid 1px blue;' : undefined);
 });
 var BodyWrapper = styled.div(templateObject_3$8 || (templateObject_3$8 = __makeTemplateObject(["\n  position: relative;\n  display: flex;\n"], ["\n  position: relative;\n  display: flex;\n"])));
-var Inner = styled.div(templateObject_4$4 || (templateObject_4$4 = __makeTemplateObject(["\n  flex-grow: 1;\n  margin-top: ", ";\n  transition: margin-top 0.2s;\n  transform: translate3d(0, 0, 0);\n  ", " {\n    margin-left: ", ";\n  }\n"], ["\n  flex-grow: 1;\n  margin-top: ", ";\n  transition: margin-top 0.2s;\n  transform: translate3d(0, 0, 0);\n  ", " {\n    margin-left: ", ";\n  }\n"])), function (_a) {
+var Inner = styled.div(templateObject_4$4 || (templateObject_4$4 = __makeTemplateObject(["\n  flex-grow: 1;\n  /* margin-top: ", "; */\n  transition: margin-top 0.2s;\n  transform: translate3d(0, 0, 0);\n  ", " {\n    margin-left: ", ";\n  }\n"], ["\n  flex-grow: 1;\n  /* margin-top: ", "; */\n  transition: margin-top 0.2s;\n  transform: translate3d(0, 0, 0);\n  ", " {\n    margin-left: ", ";\n  }\n"])), function (_a) {
     var showMenu = _a.showMenu;
     return (showMenu ? MENU_HEIGHT + "px" : 0);
 }, function (_a) {
@@ -2801,17 +2810,17 @@ var Menu = function (_a) {
     // Find the home link if provided
     var homeLink = links.find(function (link) { return link.label === "Home"; });
     var pushSideBar = function () {
-        if (isMobile)
-            setIsPushed(function (prevState) { return !prevState; });
+        setIsPushed(function (prevState) { return !prevState; });
     };
-    return (React.createElement(Wrapper$1, null,
-        React.createElement(StyledNav, { showMenu: showMenu, isMobile: isMobile },
-            React.createElement(Logo$2, { isPushed: isPushed, togglePush: function () { pushSideBar(); }, isDark: isDark, isMobile: isMobile, href: (_b = homeLink === null || homeLink === void 0 ? void 0 : homeLink.href) !== null && _b !== void 0 ? _b : "/" }),
-            React.createElement(Flex, null,
-                React.createElement(UserBlock, { account: account, login: login, logout: logout, isMobile: isMobile }),
-                React.createElement(GearBackground, null,
-                    React.createElement(Icon$18, null)),
-                profile && React.createElement(Avatar, { profile: profile }))),
+    return (React.createElement(Wrapper$1, { isMobile: isMobile },
+        React.createElement("div", { style: { position: 'relative', display: 'flex' } },
+            React.createElement(StyledNav, { showMenu: showMenu, isMobile: isMobile, isPushed: isPushed },
+                React.createElement(Logo$2, { isPushed: isPushed, togglePush: function () { pushSideBar(); }, isDark: isDark, isMobile: isMobile, href: (_b = homeLink === null || homeLink === void 0 ? void 0 : homeLink.href) !== null && _b !== void 0 ? _b : "/" }),
+                React.createElement(Flex, null,
+                    React.createElement(UserBlock, { account: account, login: login, logout: logout, isMobile: isMobile }),
+                    React.createElement(GearBackground, null,
+                        React.createElement(Icon$18, null)),
+                    profile && React.createElement(Avatar, { profile: profile })))),
         React.createElement(BodyWrapper, null,
             React.createElement(Panel, { isPushed: isPushed, isMobile: isMobile, showMenu: showMenu, isDark: isDark, toggleTheme: toggleTheme, langs: langs, setLang: setLang, currentLang: currentLang, cakePriceUsd: cakePriceUsd, pushNav: setIsPushed, links: links, priceLink: priceLink, onClick: function () { pushSideBar(); } }),
             React.createElement(Inner, { isPushed: isPushed, showMenu: showMenu }, children),

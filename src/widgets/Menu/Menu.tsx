@@ -17,15 +17,19 @@ import {Gear} from "./icons"
 // eslint-disable-next-line global-require
 // const TopNavBG = require("./IconImage/BgHeader.svg") as string;
 
-const Wrapper = styled.div`
+const Wrapper = styled.div<{ isMobile: boolean}>`
   position: relative;
   width: 100%;
+  padding-left: ${({ isMobile }) => (isMobile ? `${SIDEBAR_WIDTH_REDUCED}px` : '0')};
 `;
 
-const StyledNav = styled.nav<{ showMenu: boolean, isMobile: boolean }>`
+const StyledNav = styled.nav<{ showMenu: boolean, isMobile: boolean, isPushed: boolean }>`
   z-index: 1 !important;
-  position: fixed;
-  top: ${({ showMenu }) => (showMenu ? 0 : `-${MENU_HEIGHT}px`)};
+  width: 100% !important;
+  ${({ theme }) => theme.mediaQueries.nav} {
+    margin-left: ${({ isPushed }) => `${isPushed ? SIDEBAR_WIDTH_FULL : SIDEBAR_WIDTH_REDUCED}px`};
+  }
+  top: ${({ showMenu }) => (showMenu ? 0 : `-${MENU_HEIGHT}px !importants`)};
   left: ${({ isMobile }) => (isMobile ? '8%' : '16%')};
   transition: top 0.2s;
   display: flex;
@@ -37,31 +41,8 @@ const StyledNav = styled.nav<{ showMenu: boolean, isMobile: boolean }>`
   height: ${MENU_HEIGHT}px;
   border-bottom:  ${({ isMobile }) => (isMobile ? 'solid 1px blue;' : undefined)}; 
   z-index: 20;
+  flex-grow: 1;
   transform: translate3d(0, 0, 0);
-  @media screen and (min-width: 970px) {
-    width: 66% !important;
-    left: 30% !important;
-  }
-  @media screen and (min-width: 1100px) {
-    width: 70% !important;
-    left: 26% !important;
-  }
-  @media screen and (min-width: 1300px) {
-    width: 72% !important;
-    left: 24% !important;
-  }
-  @media screen and (min-width: 1500px) {
-    width: 75% !important;
-    left: 21% !important;
-  }
-  @media screen and (min-width: 1700px) {
-    width: 76% !important;
-    left: 19% !important;
-  }
-  @media screen and (min-width: 2010px) {
-    width: 80% !important;
-    left: 16% !important;
-  }
 `;
 
 const BodyWrapper = styled.div`
@@ -71,7 +52,7 @@ const BodyWrapper = styled.div`
 
 const Inner = styled.div<{ isPushed: boolean; showMenu: boolean }>`
   flex-grow: 1;
-  margin-top: ${({ showMenu }) => (showMenu ? `${MENU_HEIGHT}px` : 0)};
+  /* margin-top: ${({ showMenu }) => (showMenu ? `${MENU_HEIGHT}px` : 0)}; */
   transition: margin-top 0.2s;
   transform: translate3d(0, 0, 0);
   ${({ theme }) => theme.mediaQueries.nav} {
@@ -156,12 +137,13 @@ const Menu: React.FC<NavProps> = ({
   // Find the home link if provided
   const homeLink = links.find((link) => link.label === "Home");
   const pushSideBar = () => {
-    if(isMobile) setIsPushed((prevState: boolean) => !prevState)
+    setIsPushed((prevState: boolean) => !prevState)
   }
 
   return (
-    <Wrapper>
-      <StyledNav showMenu={showMenu} isMobile={isMobile}>
+    <Wrapper isMobile={isMobile}>
+      <div style={{position: 'relative', display: 'flex'}}>
+      <StyledNav showMenu={showMenu} isMobile={isMobile} isPushed={isPushed}>
           <Logo
             isPushed={isPushed}
             togglePush={() => {pushSideBar()}}
@@ -174,11 +156,10 @@ const Menu: React.FC<NavProps> = ({
             <GearBackground>
               <Gear/>
             </GearBackground>
-            {/* <img src={Gear} alt="" style={{marginLeft: '15px', marginRight: '15px'}} /> */}
-            {/* Nav bar profile */}
             {profile && <Avatar profile={profile} />}
           </Flex>
       </StyledNav>
+      </div>
       <BodyWrapper>
         <Panel
           isPushed={isPushed}
